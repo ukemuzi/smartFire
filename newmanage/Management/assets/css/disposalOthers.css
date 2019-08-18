@@ -1,0 +1,258 @@
+
+body{
+    background: url(../img/cbg.png) no-repeat;
+    background-size: 100%;
+}
+
+/* 主体内容tab栏 */
+.main .main_tabs ul{
+    margin: 40px 0 20px 0;
+}
+.main .main_tabs ul li{
+    width: 125px;
+    height: 50px;
+    line-height: 50px;
+    margin-left: 20px;
+    float: left;
+    cursor: pointer;
+    position: relative;
+    z-index: 9;
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+    background: url(../img/btn3.png) no-repeat;
+}
+.main .main_tabs ul li em{
+    display: none;
+    position: absolute;
+    left: -27px;
+    top: -29px;
+    width: 180px;
+    height: 106px;
+    z-index: 6;
+    background: url(../img/zfx8.png) no-repeat;
+}
+.main .main_tabs ul li.active{
+    background: url(../img/zfx9.png) no-repeat;
+}
+.main .main_tabs ul li.active em{
+    display: block;
+}
+/* 主体左边 */
+.main .main_left {
+    width: 760px;
+    /* height: 880px; */
+    height: 872px;
+    margin-left: 16px;
+    padding: 5px 8px 0 5px;
+    float: left;
+    background: url(../img/bg7.png) no-repeat;
+    background-size: 100% 100%;
+}
+.main .main_left .left_title{
+    width: 100%;
+    height: 80px;
+    line-height: 80PX;
+    padding-left: 25px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #00ecfc;
+    border-bottom: 2px solid #0191e9;
+}
+.main .main_left .left_content{
+    padding: 25px 30px;
+}
+.main .main_left .content_item{
+    width: 685px;
+    height: 170px;
+    padding: 25px;
+    border: 1px solid #133b5c;
+    box-shadow: inset 0 0 25px 0 #133b5c;
+}
+.main .main_left .content_item ul li{
+    margin-top: 24px;
+}
+.main .main_left .content_item ul li:nth-of-type(1){
+    margin-top: 0;
+}
+.main .main_left .content_item ul li span.item_title{
+    display: inline-block;
+    width: 120px;
+    text-align: right;
+    font-size: 24px;
+    color: #00ecfc;
+}
+.main .main_left .content_item ul li span.item_info{
+    display: inline-block;
+   margin-left: 30px;
+    text-align: left;
+    font-size: 24px;
+    color: #fff;
+}
+/* 主体右边 */
+.main .main_right{
+    width: 1093px;
+    /* height: 880px; */
+    height: 872px;
+    margin-left: 15px;
+    padding: 5px;
+    float: left;
+    background: url(../img/bg8.png) no-repeat;
+    background-size: 100% 100%;
+}
+.main .main_right .right_title{
+    width: 100%;
+    height: 60px;
+    line-height: 60PX;
+    padding-left: 30px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #00ecfc;
+    border-bottom: 2px solid #0191e9;
+}
+.main .main_right .right_title:nth-of-type(1){
+    height: 80px;
+    line-height: 80px;
+}
+.main .main_right .periphery{
+    width: 100%;
+    height: 160px;
+    font-size: 24px;
+    line-height: 35px;
+    padding: 25px 35px;
+    color: #fff;
+    border-bottom: 2px solid #0191e9;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.main .main_right .facilities{
+    width: 100%;
+    height: 350px;
+    padding-top: 20px;
+    border-bottom: 2px solid #0191e9;
+}
+.main .main_right .facilities .table_box{
+    width: 1010px;
+    height: 310px;
+    margin: 0 auto;
+    box-sizing: content-box;
+    border: 2px solid #143c5d;
+    box-shadow: inset 0 0 25px 0 #143c5d;
+}
+.main .main_right .facilities .table_box table{
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    color: #fff;
+    text-align: left;
+    box-sizing: border-box;
+}
+.main .main_right .facilities .table_box table thead{
+    height: 60px;
+    line-height: 60px;
+    border-bottom:2px solid #000080;
+}
+.main .main_right .facilities .table_box table th{
+    font-size: 18px;
+    padding-left: 20px;
+    color: #fdaa09;
+    font-weight: normal;
+    border-bottom: 2px solid #195275;
+}
+.main .main_right .facilities .table_box table tr td{
+    padding-left: 20px;
+    border-bottom: 2px solid #195275;
+}
+.main .main_right .facilities .table_box table tr:nth-last-of-type(1) td{
+    border-bottom: none;
+}
+.main .main_right .facilities .table_box table tr td:nth-of-type(2){
+    padding-right: 60px;
+}
+.main .main_right .facilities .table_box table tr td:nth-of-type(1){
+    line-height: 60px;
+}
+.main .main_right .facilities .table_box table tr td:nth-of-type(3){
+    padding-left: 25px; 
+}
+.main .main_right .summary{
+    width: 100%;
+    height: 150px;
+}
+.listJq {
+    padding: 10px;
+    height: 207px;
+    overflow: auto;
+}
+
+.listJq ul {
+    margin-bottom: 10px;
+    background-color: #0f2439;
+    overflow: hidden;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+.listJq ul:hover {
+    background-color: #0b3251
+}
+
+.listJq ul:hover a {
+    color: #ccc
+}
+
+.listJq ul li {
+    font-size: 16px;
+    color: #fff;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-left: 10px;
+    padding-left: 45px;
+}
+
+.listJq ul li:nth-child(2) {
+    color: #2ea4ff;
+    font-size: 18px;
+    margin-bottom: 5px;
+    padding-left: 0
+}
+
+.listJq ul li:nth-child(2) a {
+    color: #2ea4ff
+}
+
+.listJq ul li.title {
+    color: #25aeee;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.listJq ul li i {
+    margin-bottom: -10px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.listJq .rank {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 12px;
+    color: #000;
+    font-style: normal;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.listJq .rankshjz {
+    background-color: gray
+}
+
+.listJq .rank2 {
+    background-color: #2b99ed
+}
+
+.listJq .rank3 {
+    background-color: #ffba00
+}

@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>任务监控系统</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/font.css">
+    <script src="./js/echarts.min.js"></script>
+</head>
+<body>
+<!--标题-->
+<div class="bg_title">
+    <span>任务监控系统</span>
+</div>
+<!--状态-->
+<div class="status">
+    <ul>
+        <li>未完成：<span>16</span></li>
+        <li>已完成：<span>10</span></li>
+        <li>进行中：<span>4</span></li>
+    </ul>
+</div>
+<!--安保场所-->
+<div class="security_place">
+    <div class="polygon_title">安保场所</div>
+
+    <div id="security_place_b">
+
+    </div>
+</div>
+<!--安保团队-->
+<div class="the_security_team">
+    <div class="polygon_title">安保团队</div>
+    <div class="the_security_team_title" id="the_security_team_title">
+
+    </div>
+<!--    <div class="the_security_team_title">-->
+<!--        各级安保团队任务完成率-->
+<!--    </div>-->
+    <div id="the_security_team_b">
+
+    </div>
+    <div id="the_security_team_c">
+
+    </div>
+    <div id="the_security_team_d">
+
+    </div>
+</div>
+<!--今日任务-->
+<div class="today_task">
+    <div class="today_task_number"  style="font-family: 'LcdD'">
+        25
+    </div>
+    <div class="today_task_b">
+        今日任务
+    </div>
+</div>
+<!--执勤人数-->
+<div class="the_number_of_duty">
+    <div class="today_task_number"  style="font-family: 'LcdD'">
+        160
+    </div>
+    <div class="today_task_b">
+        执勤人数
+    </div>
+</div>
+<!--出动车辆-->
+<div class="sent_to_the_vehicle">
+    <div class="today_task_number"  style="font-family: 'LcdD'">
+        25
+    </div>
+    <div class="today_task_b">
+        出动车辆
+    </div>
+</div>
+<!--    巡查任务-->
+<div class="patrols">
+    巡查任务：<span>9</span>
+</div>
+<!--抢险救援-->
+<div class="emergency_rescue">
+    抢险救援：<span>14</span>
+</div>
+<!--社会任务-->
+<div class="social_mission">
+    社会任务：<span>16</span>
+</div>
+<!--任务总览-->
+<div class="task_overview">
+    <div class="polygon_title">任务总览</div>
+    <div class="as_the_current">
+        <div class="r_title">
+            截止当前
+        </div>
+        <ul class="r_body">
+            <li>出动总数：<span>100</span></li>
+            <li>出动人次：<span>1000</span></li>
+            <li>出动车次：<span>250</span></li>
+        </ul>
+    </div>
+    <div class="task_overview_a" id="task_overview_a">
+
+    </div>
+</div>
+<!--重点任务-->
+<div class="key_task">
+    <div class="polygon_title">重点任务</div>
+    <div class="key_task_th">
+        <span>任务名称</span>
+        <span>执勤地点</span>
+        <span>任务类型</span>
+        <span>负责人</span>
+        <span>联系电话</span>
+        <span>任务状态</span>
+    </div>
+    <div class="key_task_list">
+        <ul>
+            <li>
+                <span>火灾救援</span>
+                <span>江夏区吉利路31号个火山熔岩熔岩巨人已经有条件Mohr以后要</span>
+                <span>三级</span>
+                <span>李大龙</span>
+                <span>15624745546</span>
+                <span>进行中</span>
+            </li>
+            <li>
+                <span>火灾救援</span>
+                <span>江夏区吉利路31号</span>
+                <span>三级</span>
+                <span>李大龙</span>
+                <span>15624745546</span>
+                <span>进行中</span>
+            </li>
+            <li>
+                <span>火灾救援</span>
+                <span>江夏区吉利路31号</span>
+                <span>三级</span>
+                <span>李大龙</span>
+                <span>15624745546</span>
+                <span>进行中</span>
+            </li>
+            <li>
+                <span>火灾救援</span>
+                <span>江夏区吉利路31号</span>
+                <span>三级</span>
+                <span>李大龙</span>
+                <span>15624745546</span>
+                <span>进行中</span>
+            </li>
+            <li>
+                <span>火灾救援</span>
+                <span>江夏区吉利路31号</span>
+                <span>三级</span>
+                <span>李大龙</span>
+                <span>15624745546</span>
+                <span>进行中</span>
+            </li>
+            <li>
+                <span>火灾救援</span>
+                <span>江夏区吉利路31号</span>
+                <span>三级</span>
+                <span>李大龙</span>
+                <span>15624745546</span>
+                <span>进行中</span>
+            </li>
+            <li>
+                <span>火灾救援</span>
+                <span>江夏区吉利路31号</span>
+                <span>三级</span>
+                <span>李大龙</span>
+                <span>15624745546</span>
+                <span>进行中</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--任务反馈-->
+<div class="task_feedback">
+    <div class="polygon_title">任务反馈</div>
+    <div class="task_box">
+        <div class="task_feedback_box">
+            <div class="box_top" style="font-family: 'LcdD'">10</div>
+            <div class="box_text">今日发现隐患</div>
+        </div>
+        <div class="task_feedback_box">
+            <div class="box_top" style="font-family: 'LcdD'">5</div>
+            <div class="box_text">待整改</div>
+        </div>
+        <div class="task_feedback_box">
+            <div class="box_top" style="font-family: 'LcdD'">100</div>
+            <div class="box_text">隐患总数</div>
+        </div>
+    </div>
+</div>
+<!--隐患列表-->
+<div class="hidden_danger_list">
+    <div class="polygon_title">隐患列表</div>
+    <div class="list_list">
+        <ul>
+            <li>
+                <p>消防栓埋压、圈占、遮挡</p>
+                <p>时间：2019-05-03   08:59:33</p>
+                <p>地址：化工大道128号 F6栋楼梯间</p>
+            </li>
+            <li>
+                <p>二七路中队火灾扑救</p>
+                <p>时间：2019-05-03   08:50:33</p>
+                <p>地址：江岸区二七路盛景公馆</p>
+            </li>
+            <li>
+                <p>二七路中队火灾扑救</p>
+                <p>时间：2019-05-03   08:50:33</p>
+                <p>地址：江岸区二七路盛景公馆</p>
+            </li>
+            <li>
+            <p>消防栓埋压、圈占、遮挡</p>
+            <p>时间：2019-05-03   08:59:33</p>
+            <p>地址：化工大道128号 F6栋楼梯间</p>
+        </li>
+            <li>
+                <p>二七路中队火灾扑救</p>
+                <p>时间：2019-05-03   08:50:33</p>
+                <p>地址：江岸区二七路盛景公馆</p>
+            </li>
+            <li>
+                <p>二七路中队火灾扑救</p>
+                <p>时间：2019-05-03   08:50:33</p>
+                <p>地址：江岸区二七路盛景公馆</p>
+            </li>
+            <li>
+                <p>消防栓埋压、圈占、遮挡</p>
+                <p>时间：2019-05-03   08:59:33</p>
+                <p>地址：化工大道128号 F6栋楼梯间</p>
+            </li>
+            <li>
+                <p>二七路中队火灾扑救</p>
+                <p>时间：2019-05-03   08:50:33</p>
+                <p>地址：江岸区二七路盛景公馆</p>
+            </li>
+            <li>
+                <p>二七路中队火灾扑救</p>
+                <p>时间：2019-05-03   08:50:33</p>
+                <p>地址：江岸区二七路盛景公馆</p>
+            </li>
+            <li>
+                <p>消防栓埋压、圈占、遮挡</p>
+                <p>时间：2019-05-03   08:59:33</p>
+                <p>地址：化工大道128号 F6栋楼梯间</p>
+            </li>
+            <li>
+                <p>二七路中队火灾扑救</p>
+                <p>时间：2019-05-03   08:50:33</p>
+                <p>地址：江岸区二七路盛景公馆</p>
+            </li>
+            <li>
+                <p>二七路中队火灾扑救</p>
+                <p>时间：2019-05-03   08:50:33</p>
+                <p>地址：江岸区二七路盛景公馆</p>
+            </li>
+            <li>
+                <p>消防栓埋压、圈占、遮挡</p>
+                <p>时间：2019-05-03   08:59:33</p>
+                <p>地址：化工大道128号 F6栋楼梯间</p>
+            </li>
+            <li>
+                <p>二七路中队火灾扑救</p>
+                <p>时间：2019-05-03   08:50:33</p>
+                <p>地址：江岸区二七路盛景公馆</p>
+            </li>
+            <li>
+                <p>二七路中队火灾扑救</p>
+                <p>时间：2019-05-03   08:50:33</p>
+                <p>地址：江岸区二七路盛景公馆</p>
+            </li>
+
+        </ul>
+    </div>
+</div>
+<!--隐患趋势-->
+<div class="trend_of_hidden_trouble">
+    <div class="polygon_title">隐患趋势</div>
+    <div class="trend_of_hidden_trouble_title">
+        10日隐患
+    </div>
+    <div id="trend_of_hidden_trouble_a">
+    </div>
+</div>
+</body>
+<script src="js/PercentPie.js"></script>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('security_place_b'));
+
+    // 指定图表的配置项和数据
+
+    var option = {
+        textStyle: {
+            color: 'rgba(255, 255, 255)'
+        },
+        title: {
+            text: '安保场所数量图',
+            textStyle:{
+                color:'#fff',
+                fontSize:22
+            }
+        },
+        tooltip: {},
+        legend: {
+            data:['销量'],
+            textStyle:{
+                color:"#fff"
+            }
+        },
+
+        xAxis: {
+            //设置轴线的属性
+            axisLine:{
+                lineStyle:{
+                    color:'#09f',
+                    // width:8,//这里是为了突出显示加上的
+                }
+            },
+            data: ["一级","二级","三级","四级"],
+            color:'#09f',
+            splitLine:{
+                show:false
+            }
+        },
+        yAxis: {
+            //设置轴线的属性
+            axisLine:{
+                lineStyle:{
+                    color:'#09f',
+                    // width:8,//这里是为了突出显示加上的
+                }
+            },
+            splitLine:{
+                show:false
+            }
+        },
+        series: [{
+            label: {
+                normal: {
+                    show: true,
+                    position: 'top',
+                    textStyle:{
+                        fontSize:16
+                    }
+                }
+            },
+            type: 'bar',
+            data: [5, 20, 36, 10],
+            barWidth: '32px',
+            itemStyle: {
+                // 普通样式。
+                normal: {
+                    // 点的颜色。
+                    // color: '#09f'
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: '#46B8E7'
+                    }, {
+                        offset: 1,
+                        color: '#457BE8'
+                    }]),
+                },
+                // 高亮样式。
+                emphasis: {
+                    // 高亮时点的颜色。
+                    color: '#08e'
+                },
+            },
+        }],
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+
+
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('the_security_team_title'));
+
+    // 指定图表的配置项和数据
+
+    var option = {
+        textStyle: {
+            color: 'rgba(255, 255, 255)'
+        },
+        title: {
+            text: '安保团队数量',
+            textStyle:{
+                color:'#fff',
+                fontSize:22
+            }
+        },
+        tooltip: {},
+        legend: {
+            data:['销量'],
+            textStyle:{
+                color:"#fff"
+            }
+        },
+
+        xAxis: {
+            show:false,
+            type : 'value',
+            color:'#09f',
+            splitLine:{
+                show:false
+            }
+        },
+        yAxis: {
+            show:true,
+            data: ["一级","二级","三级"],
+            type : 'category',
+            splitLine:{
+                show:false
+            },
+            //设置轴线的属性
+            axisLine:{
+                lineStyle:{
+                    color:'rgba(0,0,0,0)',
+                    // width:8,//这里是为了突出显示加上的
+                }
+            }
+        },
+        series: [{
+            label: {
+                normal: {
+                    show: true,
+                    position: 'right',
+                    textStyle:{
+                        fontSize:16
+                    }
+                }
+            },
+            type: 'bar',
+            data: [101, 95, 158],
+            barWidth: '22px',
+            itemStyle: {
+                // 普通样式。
+                normal: {
+                    // 点的颜色。
+                    color: function(params) {
+                            // build a color map as your need.
+                            var colorList = [
+                                new echarts.graphic.LinearGradient(1, 0, 0, 0, [{
+                                    offset: 0,
+                                    color: '#49ECFF'
+                                }, {
+                                    offset: 1,
+                                    color: '#28ABF7'
+                                }]),new echarts.graphic.LinearGradient(1, 0, 0, 0, [{
+                                    offset: 0,
+                                    color: '#FF9A35'
+                                }, {
+                                    offset: 1,
+                                    color: '#FC644C'
+                                }]),new echarts.graphic.LinearGradient(1, 0, 0, 0, [{
+                                    offset: 0,
+                                    color: '#FD6B5C'
+                                }, {
+                                    offset: 1,
+                                    color: '#F93B24'
+                                }])
+                            ];
+                            return colorList[params.dataIndex]
+                        }
+
+                        ,
+                },
+                // 高亮样式。
+                emphasis: {
+                    // 高亮时点的颜色。
+                    color: '#08e'
+                },
+            },
+        }],
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+
+    var myChart = echarts.init(document.getElementById('the_security_team_b'));
+    option = {
+    color: ["#e3f9ff", "#3999dd"],　　　　//环形图两部分的颜色
+        graphic: [{　　　　　　　　　　　　　　　　//环形图中间添加文字
+        type: 'text',　　　　　　　　　　　　//通过不同top值可以设置上下显示
+        left: 'center',
+        top: '35%',
+        style: {
+            text: "80%" ,//（自己设置显示内容）,
+    textAlign: 'center',
+        fill: '#fff',　　　　　　　　//文字的颜色
+        width: 30,
+        height: 30,
+        fontSize: 18,
+        color: "#4d4f5c",
+    }
+    }, {
+        type: 'text',
+            left: 'center',
+            top: '0%',
+            style: {
+                textAlign: 'center',
+                fill: '#fff',
+                width: 30,
+                height: 30,
+                fontSize: 18,
+        }
+    }],
+    series: [　　　　　　　　　　　　　　//配置数据啥的
+        {
+            name: '达标率',
+            type: 'pie',　　　　　　　　//设为饼图
+            radius: ['60%', '80%'],　　//设置内半径和外半径，形成环状
+            minAngle:15,　　　　　　　　　//设置最小角度
+            startAngle:270　,　　　　　　//设置起始角度
+            clockWise:false,　　　　　　　　//默认逆时针
+            avoidLabelOverlap: false,　　　//避免标注重叠
+            hoverAnimation: false,　　　　//移入放大
+            silent: true,
+            center: ['50%', '40%'],
+            label: {
+                normal: {
+                    show: false,
+                    position: 'center',
+                },
+                emphasis: {
+                    show: false,
+                    textStyle: {
+                        fontSize: '30',
+                        fontWeight: 'bold',
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            data: [
+                {value: 20, name: '未达标'},
+                {value: 80, name: '达标'},
+            ]
+        }
+    ]
+    };
+    myChart.setOption(option);
+
+    var myChart = echarts.init(document.getElementById('the_security_team_c'));
+    option = {
+        color: ["#e3f9ff", "#3999dd"],　　　　//环形图两部分的颜色
+        graphic: [{　　　　　　　　　　　　　　　　//环形图中间添加文字
+            type: 'text',　　　　　　　　　　　　//通过不同top值可以设置上下显示
+            left: 'center',
+            top: '35%',
+            style: {
+                text: "80%" ,//（自己设置显示内容）,
+                textAlign: 'center',
+                fill: '#fff',　　　　　　　　//文字的颜色
+                width: 30,
+                height: 30,
+                fontSize: 18,
+                color: "#4d4f5c",
+            }
+        }, {
+            type: 'text',
+            left: 'center',
+            top: '0%',
+            style: {
+                textAlign: 'center',
+                fill: '#fff',
+                width: 30,
+                height: 30,
+                fontSize: 18,
+            }
+        }],
+        series: [　　　　　　　　　　　　　　//配置数据啥的
+            {
+                name: '达标率',
+                type: 'pie',　　　　　　　　//设为饼图
+                radius: ['60%', '80%'],　　//设置内半径和外半径，形成环状
+                minAngle:15,　　　　　　　　　//设置最小角度
+                startAngle:270　,　　　　　　//设置起始角度
+                clockWise:false,　　　　　　　　//默认逆时针
+                avoidLabelOverlap: false,　　　//避免标注重叠
+                hoverAnimation: false,　　　　//移入放大
+                silent: true,
+                center: ['50%', '40%'],
+                label: {
+                    normal: {
+                        show: false,
+                        position: 'center',
+                    },
+                    emphasis: {
+                        show: false,
+                        textStyle: {
+                            fontSize: '30',
+                            fontWeight: 'bold',
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                data: [
+                    {value: 20, name: '未达标'},
+                    {value: 80, name: '达标'},
+                ]
+            }
+        ]
+    };
+    myChart.setOption(option);
+    var myChart = echarts.init(document.getElementById('the_security_team_d'));
+    option = {
+        color: ["#3999dd", "#fd674b"],　　　　//环形图两部分的颜色
+        graphic: [{　　　　　　　　　　　　　　　　//环形图中间添加文字
+            type: 'text',　　　　　　　　　　　　//通过不同top值可以设置上下显示
+            left: 'center',
+            top: '35%',
+            style: {
+                text: "80%" ,//（自己设置显示内容）,
+                textAlign: 'center',
+                fill: '#fff',　　　　　　　　//文字的颜色
+                width: 30,
+                height: 30,
+                fontSize: 18,
+                color: "#4d4f5c",
+            }
+        }, {
+            type: 'text',
+            left: 'center',
+            top: '0%',
+            style: {
+                textAlign: 'center',
+                fill: '#fff',
+                width: 30,
+                height: 30,
+                fontSize: 18,
+            }
+        }],
+        series: [　　　　　　　　　　　　　　//配置数据啥的
+            {
+                name: '达标率',
+                type: 'pie',　　　　　　　　//设为饼图
+                radius: ['60%', '80%'],　　//设置内半径和外半径，形成环状
+                minAngle:15,　　　　　　　　　//设置最小角度
+                startAngle:270　,　　　　　　//设置起始角度
+                clockWise:false,　　　　　　　　//默认逆时针
+                avoidLabelOverlap: false,　　　//避免标注重叠
+                hoverAnimation: false,　　　　//移入放大
+                silent: true,
+                center: ['50%', '40%'],
+                label: {
+                    normal: {
+                        show: false,
+                        position: 'center',
+                    },
+                    emphasis: {
+                        show: false,
+                        textStyle: {
+                            fontSize: '30',
+                            fontWeight: 'bold',
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                data: [
+                    {value: 20, name: '未达标'},
+                    {value: 80, name: '达标'},
+                ]
+            }
+        ]
+    };
+    myChart.setOption(option);
+    var myChart = echarts.init(document.getElementById('task_overview_a'));
+    option = {
+        textStyle: {
+            color: 'rgba(255, 255, 255)'
+        },
+        title:{
+            text:'每日任务人员视图',
+            left:'40',
+            textStyle: {
+                color: 'rgba(255, 255, 255)',
+                fontSize:22,
+            },
+        },
+        tooltip:{
+            trigger:'axis'
+        },
+        legend:{
+            data:['出动车次','出动人次']
+        },
+        calculable:true,
+        xAxis:[
+            {               //设置轴线的属性
+                axisLine:{
+                    lineStyle:{
+                        color:'#09f',
+                        width:2,//这里是为了突出显示加上的
+                    }
+                },
+                type:'category',
+                boundaryGap:false,
+                data:['1日','2日','3日','4日','5日','6日','7日','8日','9日','10日','11日','12日','13日']
+            }
+        ],
+        yAxis:[
+            {
+                //设置轴线的属性
+                axisLine:{
+                    lineStyle:{
+                        color:'#09f',
+                        width:2,//这里是为了突出显示加上的
+                    }
+                },
+                type:'value',
+                splitLine:{
+                    show:false
+                }
+            }
+        ],
+        series:[
+            {
+                name:'出动人数',
+                type:'line',
+                data:[22,33,33,44,40,39,49,44,22,33,33,44,40,39,49,44],
+                color:'#007cfe',
+                markPoint:{
+                    data:[
+                        {type:'max',name:'最大值'},
+                        // {type:'min',name:'最小值'},
+                    ]
+                },
+                areaStyle: {
+                    color: {
+                        type: 'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 0,
+                        y2: 1,
+                        colorStops: [{
+                            offset: 0, color: '#0352b2' // 0% 处的颜色
+                        },{
+                            offset: 1, color: 'rgba(0,0,0,0)' // 100% 处的颜色
+                        }],
+                        global: false // 缺省为 false
+                    }
+                }
+            },
+            {
+                name:'出动车数',
+                type:'line',
+                color:'#37b329',
+                data:[10,11,22,11,15,12,16,13,10,11,22,11,15,12,16,13],
+                markPoint:{
+                    data:[
+                        {type:'max',name:'最大值'},
+                    ]
+                },
+                areaStyle: {
+                    color: {
+                        type: 'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 0,
+                        y2: 1,
+                        colorStops: [{
+                            offset: 0, color: '#21913f' // 0% 处的颜色
+                        },{
+                            offset: 1, color: 'rgba(0,0,0,0)' // 100% 处的颜色
+                        }],
+                        global: false // 缺省为 false
+                    }
+                }
+            },
+
+        ]
+    }
+    myChart.setOption(option);
+    var myChart = echarts.init(document.getElementById('trend_of_hidden_trouble_a'));
+    option = {
+        textStyle: {
+            color: 'rgba(255, 255, 255)'
+        },
+        tooltip:{
+            trigger:'axis',
+        },
+        legend:{
+            data:['隐患数']
+        },
+        calculable:true,
+        xAxis:[
+            {               //设置轴线的属性
+                axisLine:{
+                    lineStyle:{
+                        color:'#09f',
+                        width:1,//这里是为了突出显示加上的
+                    }
+                },
+                type:'category',
+                boundaryGap:false,
+                data:['1日','2日','3日','4日','5日','6日','7日','8日','9日','10日']
+            }
+        ],
+        yAxis:[
+            {
+                //设置轴线的属性
+                axisLine:{
+                    lineStyle:{
+                        color:'#09f',
+                        width:1,//这里是为了突出显示加上的
+                    }
+                },
+                type:'value',
+                splitLine:{
+                    show:false
+                }
+            }
+        ],
+        series:[
+            {
+                name:'出动车数',
+                type:'line',
+                smooth:true,
+                data:[5,6,8,7,6,7,8,9,9,7],
+                showSymbol: false,
+                itemStyle:{
+                    color: '#a5583f',
+                    borderWidth: 3,
+                    borderType: 'solid',
+                },
+
+                lineStyle:{
+                    color: {
+                        type: 'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 0,
+                        y2: 1,
+                        colorStops: [{
+                            offset: 0, color: '#FFB767' // 0% 处的颜色
+                        },{offset: 1, color: '#FF5F3A' // 100% 处的颜色
+                        },],
+                        global: false // 缺省为 false
+                    },
+                    width:4,//这里是为了突出显示加上的
+                },
+                markPoint:{
+                    // symbol:'path://m 0,0 h 48 v 20 h -30 l  -6,10 l -6,-10 h -6 z',
+                    itemStyle:{
+                        color: '#bd2f2f',
+                        borderColor: '#000',
+                        borderWidth: 0,
+                        borderType: 'solid',
+                    },
+                    data:[
+                        {type:'max',name:'最大值'},
+                    ]
+                },
+                areaStyle: {
+                    color: {
+                        type: 'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 0,
+                        y2: 1,
+                        colorStops: [{
+                            offset: 0, color: '#a5583f' // 0% 处的颜色
+                        },{
+                            offset: 1, color: 'rgba(0,0,0,0)' // 100% 处的颜色
+                        }],
+                        global: false // 缺省为 false
+                    }
+                }
+            },
+        ]
+    }
+    myChart.setOption(option);
+</script>
+</html>

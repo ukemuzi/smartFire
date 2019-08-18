@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <title>单位百科</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <script src="../js/rem.js"></script>
+  <!-- mui -->
+  <link rel="stylesheet" href="../css/imageview.css"/>
+  <link rel="stylesheet" href="..css//mui.imageviewer.css"/>
+  <link rel="stylesheet" href="../css/mui.min.css">
+
+  <style>
+    .struc .main {
+      overflow-x: hidden;
+      /*overflow-y: hidden;*/
+      overflow-y: scroll;
+    }
+
+    .main-scroll {
+      background-color: #EFEFEF;
+      overflow-y: scroll;
+    }
+space-around
+    .tabs-nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .tab-cont {
+      position: absolute;
+      top: .88rem;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      /*overflow: auto;*/
+      overflow-y: scroll;
+    }
+
+    .tab-cont .hs-search {
+      background-color: #fff;
+    }
+
+    .tab-cont-posttion {
+      overflow: hidden;
+    }
+
+    .tab-cont-posttion .list {
+      position: absolute;
+      top: .78rem;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      /*overflow: auto;*/
+    }
+
+    /* 基本信息 start */
+    .jbxx{
+      overflow-y: scroll;
+    }
+    .jbxx .jbxx-item {
+      width: 6.6rem;
+      /*height: 3.39rem;*/
+      margin: .2rem auto 0;
+      border: 1px solid rgba(247, 247, 247, 1);
+      border-radius: .1rem;
+      overflow: hidden;
+    }
+
+    .jbxx .jbxx-item .navTop {
+      line-height: .56rem;
+      height: .56rem;
+      font-size: 0.28rem;
+      background: #fff url('../../../icon/pull_icon.png') 6rem .16rem no-repeat;
+      background-size: .38rem auto;
+      position: relative
+    }
+    .jbxx .jbxx-item .navTop strong{
+      position:absolute;
+      right:12px;
+    }
+    .jbxx .jbxx-item .navText {
+      margin-bottom: 0;
+    }
+
+    .jbxx .jbxx-item .navTop i {
+      display: inline-block;
+      width: .08rem;
+      height: .32rem;
+      background: rgba(104, 189, 255, 1);
+      border-radius: .04rem;
+      vertical-align: middle;
+      margin-left: .14rem;
+      margin-right: .12rem;
+    }
+
+    .jbxx .jbxx-item .content {
+      padding: .24rem .24rem;
+      background-color: #fff;
+      border-top: 1px solid #E5E5E5;
+      overflow: hidden;
+    }
+
+    .jbxx .jbxx-item .content div {
+      float: left;
+      font-size: .24rem;
+      color: #666666;
+    }
+
+    .jbxx .jbxx-item .content div:nth-child(2), .jbxx .jbxx-item .content div:nth-child(3) {
+      line-height: .4rem;
+    }
+
+    .jbxx .jbxx-item .content .left {
+      width: 100%;
+      line-height: .4rem;
+      word-break: break-word;
+    }
+
+    /*.jbxx .jbxx-item .content .left:first-of-type {*/
+    /*margin-top: .2rem;*/
+    /*}*/
+
+    /*.jbxx .jbxx-item .content div:first-child {*/
+    /*margin-right: .29rem;*/
+    /*}*/
+
+    .jbxx .jbxx-item .content .gs-info {
+      margin-bottom: .2rem;
+    }
+
+    .jbxx .jbxx-item .content .gs-info .img {
+      width: 1.64rem;
+      height: 1.22rem;
+      margin-right: .25rem;
+    }
+
+    .jbxx .jbxx-item .content .gs-info .img img {
+      width: 100%;
+      height: 100%;
+      border-radius: .08rem;
+      border: 1px solid #eee;
+    }
+
+    /* 基本信息 end */
+
+    /* 事件记录 start */
+    .sjjl {
+      padding-top: .2rem;
+    }
+
+    .sjjl .sjjl-item {
+      width: 6.6rem;
+      margin: 0 auto .2rem;
+      border-radius: .1rem;
+      background-color: #ffffff;
+    }
+
+    .sjjl .sjjl-item .top {
+      border-bottom: 1px solid #E5E5E5;
+      padding: .24rem .2rem;
+    }
+
+    .sjjl .sjjl-item .top .msg {
+      font-size: .28rem;
+      height: .38rem;
+      line-height: .38rem;
+      background-color: #fff;
+      color: #333;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .sjjl .sjjl-item .top .level {
+      height: .38rem;
+      padding: 0 .15rem;
+      background: #e5e5e5;
+      border-radius: .19rem;
+      font-size: .2rem;
+      line-height: .38rem;
+      color: #fff;
+    }
+
+    .sjjl .sjjl-item .top [data-level=A] {
+      background: #E96E5D;
+    }
+
+    .sjjl .sjjl-item .top [data-level=B] {
+      background: #F9893E;
+    }
+
+    .sjjl .sjjl-item .top [data-level=C] {
+      background: #ECB746;
+    }
+
+    .sjjl .sjjl-item .top [data-level=D] {
+      background: #67bdff;
+    }
+
+    .sjjl .sjjl-item .top [data-level=人员离岗] {
+      background: #1D86D1;
+    }
+
+    .sjjl .sjjl-item .top [data-level=屏蔽备案] {
+      background: #999;
+    }
+
+    .sjjl .sjjl-item .top .address {
+      height: .24rem;
+      margin-top: .14rem;
+      font-size: .22rem;
+      line-height: .24rem;
+      color: #999;
+    }
+
+    .sjjl .sjjl-item .top .time {
+      height: .24rem;
+      margin-top: .14rem;
+      font-size: .22rem;
+      line-height: .24rem;
+      color: #666;
+    }
+
+    .sjjl .sjjl-item .bottom {
+      padding: 0 .2rem;
+      height: .56rem;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .sjjl .sjjl-item .bottom .state {
+      height: .34rem;
+      padding: 0 .2rem;
+      border: 1px solid #4089D7;
+      border-radius: .18rem;
+      font-size: .22rem;
+      line-height: .34rem;
+      color: #4089D7;
+    }
+
+    /* 事件记录 end */
+
+    /* 防火巡查 start */
+    .chart {
+      width: 6.6rem;
+      /*height: 3.39rem;*/
+      margin: .2rem auto 0;
+      background: rgba(255, 255, 255, 1);
+      border: 1px solid rgba(247, 247, 247, 1);
+      border-radius: .1rem;
+    }
+
+    .chart .name {
+      margin: 0 .2rem;
+      height: .56rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .chart .name i {
+      display: inline-block;
+      width: .08rem;
+      height: .32rem;
+      background: rgba(104, 189, 255, 1);
+      border-radius: .04rem;
+    }
+
+    .chart .name span.text {
+      flex: 1 1 auto;
+      margin-left: .12rem;
+      font-size: .28rem;
+      line-height: .3rem;
+      color: #333;
+    }
+
+    .chart .name .look {
+      font-size: .24rem;
+      line-height: .32rem;
+      color: #999;
+    }
+
+    .chart .data {
+      margin: 0 .09rem;
+      border-top: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chart .data > div {
+      height: 1.3rem;
+      flex: 1 1 33.33%;
+    }
+
+    .chart .data > .dd-1, .chart .data > .dd-2 {
+      border-right: 1px solid #eee;
+    }
+
+    .chart .data > div span {
+      display: block;
+      text-align: center;
+    }
+
+    .chart .data > div span.num {
+      margin-top: .36rem;
+      height: .36rem;
+      font-size: .36rem;
+      line-height: .36rem;
+      color: #666;
+    }
+
+    .chart .data > div span.txt {
+      margin-top: .2rem;
+      font-size: .2rem;
+      line-height: .2rem;
+      color: rgba(153, 153, 153, 1);
+    }
+
+    .chart .frame {
+      width: 6.18rem;
+      height: 2.8rem;
+      margin: .2rem;
+      padding: 0;
+    }
+
+    .chart .xf-title {
+      font-size: .22rem;
+      line-height: .28rem;
+      text-align: center;
+      color: rgba(102, 102, 102, 1);
+    }
+
+    .chart .table {
+      margin-top: .26rem;
+      width: 100%;
+    }
+
+    .chart .table tr {
+
+    }
+
+    .chart .table tr td {
+      border: 1px solid #eee;
+      box-sizing: border-box;
+      padding-bottom: .2rem;
+    }
+
+    .chart .table td span {
+      display: block;
+      text-align: center;
+    }
+
+    .chart .table td span.num {
+      margin-top: .30rem;
+      font-size: .36rem;
+      line-height: .36rem;
+      color: #666;
+    }
+
+    .chart .table td span.txt {
+      margin-top: .2rem;
+      font-size: .2rem;
+      line-height: .2rem;
+      color: #999;
+    }
+
+    /* 防火巡查 end */
+
+    /* 消防维保 start */
+    .xfwb {
+      margin-top: .2rem;
+    }
+
+    .xfwb .xfwb-item {
+      width: 6.6rem;
+      margin: 0 auto .2rem;
+      border-radius: .1rem;
+      background-color: #ffffff;
+    }
+
+    .xfwb .xfwb-item .top {
+      border-bottom: 1px solid #E5E5E5;
+      padding: .24rem .2rem;
+    }
+
+    .xfwb .xfwb-item .top .msg {
+      height: .4rem;
+      font-size: .28rem;
+      line-height: .4rem;
+      background-color: #fff;
+      color: #333;
+    }
+
+    .xfwb .xfwb-item .top .t-txt {
+      height: .24rem;
+      margin-top: .14rem;
+      font-size: .22rem;
+      line-height: .24rem;
+      color: #333;
+    }
+
+    .xfwb .xfwb-item .top .t-txt span {
+      color: #666;
+    }
+
+    .xfwb .xfwb-item .bottom {
+      padding: 0 .2rem;
+      height: .56rem;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .xfwb .xfwb-item .bottom .state {
+      height: .36rem;
+      padding: 0 .2rem;
+      border: 1px solid #4089D7;
+      border-radius: .18rem;
+      font-size: .22rem;
+      line-height: .36rem;
+      color: #4089D7;
+    }
+
+    /* 消防维保 end */
+  </style>
+  <link rel="stylesheet" href="../fonts/iconfont.css">
+  <script src="../fonts/iconfont.js"></script>
+</head>
+<body>
+<div id="app" style="overflow-y: scroll;">
+  <div class="page-all" style="overflow-y: scroll;">
+    <div class="struc noFooter">
+      <div class="header">
+        <head-nav left-arrow :title="name" @click-left="onClickLeft">
+          <div v-if="tab_index===2||tab_index===4" slot="right" class="saixuan" @click="onClickRight"><span>筛选</span>
+          </div>
+        </head-nav>
+      </div>
+      <div class="main" style="overflow-y: scroll;">
+        <div class="main-scroll" style="overflow-y: scroll;">
+          <tabs-nav class="tabs-nav" ref="tabsZj" :tabs="tabs" v-model="tab_index" :swipe-threshold="5"></tabs-nav>
+
+          <!--基本信息-->
+          <div class="tab-cont" v-show="tab_index===0">
+<!--          <div class="tab-cont">-->
+            <ul class="jbxx">
+              <li class="jbxx-item shadow-item">
+                <div class="navTop" @click="unfold('t0')">
+                  <i></i>
+                  <span>基本信息</span>
+                  <strong class="iconfont icon-choose-arrow" style="color:#9e9e9e;"></strong>
+                </div>
+                <div class="content" v-if="info_state.t0">
+                  <div class="gs-info">
+                    <div class="img">
+                      <img v-if="info.externalPhotos" :src="info.image" :data-preview-src="info.image" data-preview-group="1"></div>
+                    <div>
+                      <div style="width: 100%">单位名称：{{info.unitName}}</div>
+                      <div style="width: 100%">使用名称：{{info.definitionName}}</div>
+                    </div>
+                  </div>
+                  <div class="left">本单位使用建筑：{{info.architecture}}</div>
+                  <div class="left">总建筑面积：{{info.totalBuildingArea}}m²</div>
+                  <div class="left">单位地址：{{info.unitAddress}}</div>
+                  <div class="left">单位类型：{{info.unitTypeInfo}}</div>
+                  <div class="left">建筑列表：{{info.buildingName}}</div>
+                </div>
+              </li>
+              <li class="jbxx-item shadow-item">
+                <div class="navTop" @click="unfold('t1')">
+                  <i></i>
+                  <span>消防信息</span>
+                  <strong class="iconfont icon-choose-arrow" style="color:#9e9e9e;"></strong>
+                </div>
+                <div class="content" v-if="info_state.t1">
+                  <div class="left">消防管辖：{{info.fireControlJurisdiction}}</div>
+                  <div class="left">监管单位类别：{{info.supervisoryUnitsTypeInfo}}</div>
+                  <div class="left">单位属性类别：{{info.unitAttributeInfo}}</div>
+                  <div class="left">消防控制室位置：{{info.fireControlRoomLocationInfo}}</div>
+                  <div class="left">安全出口：{{info.safetyExitNum}}</div>
+                  <div class="left">疏散楼梯数量：{{info.evacuationStairsNum}}</div>
+                </div>
+              </li>
+              <li class="jbxx-item shadow-item">
+                <div class="navTop" @click="unfold('t2')"><i></i><span>档案信息</span>
+                  <strong class="iconfont icon-choose-arrow" style="color:#9e9e9e;"></strong>
+                </div>
+                <div class="content" v-if="info_state.t2">
+                  <div class="left">消防安全制度：<span>{{info.regulationArchival}}</span></div>
+                  <div class="left">灭火和应急疏散预案：<span>{{info.reservePlan}}</span></div>
+                  <div class="left">员工消防安全培训记录：<span>{{info.trainArchival}}</span></div>
+                  <div class="left">消防演练记录：<span>{{info.drillRecord}}</span></div>
+                </div>
+              </li>
+              <li class="jbxx-item shadow-item">
+                <div class="navTop" @click="unfold('t3')"><i></i><span>机构及人员</span>
+                  <strong class="iconfont icon-choose-arrow" style="color:#9e9e9e;"></strong>
+                </div>
+                <div class="content" v-if="info_state.t3">
+                  <div class="left">消防安全责任人：<span>{{info.personResponsible}}</span></div>
+                  <div class="left">消防安全管理人：<span>{{info.personManageSafety}}</span></div>
+                  <div class="left">消防控制室值班员：<span>{{info.personOnRoomDuty}}</span></div>
+                  <div class="left">微型消防站站长：<span>{{info.miniFireStationMaster}}</span></div>
+                  <div class="left">分管消防监督员：<span>{{info.supervisorsResponsible}}</span></div>
+                  <div class="left">协管消防监督员：<span>{{info.supervisorsComanagement}}</span></div>
+                </div>
+              </li>
+              <li class="jbxx-item shadow-item">
+                <div class="navTop" @click="unfold('t4')"><i></i><span>建筑信息</span>
+                  <strong class="iconfont icon-choose-arrow" style="color:#9e9e9e;"></strong>
+                </div>
+                <div class="content" v-if="info_state.t4">
+<!--                  <div class="left">消防安全责任人：</div>-->
+<!--                  <div class="left">消防控制室值班员：</div>-->
+<!--                  <div class="left">微型消防站站长：</div>-->
+<!--                  <div class="left">消防安全管理人：</div>-->
+<!--                  <div class="left">分管消防监督员：</div>-->
+<!--                  <div class="left">协管消防监督员：</div>-->
+                </div>
+              </li>
+              <li style="height: .3rem;"></li>
+            </ul>
+          </div>
+
+          <!--实时物联-->
+          <div class="tab-cont" v-show="tab_index===1"></div>
+
+          <!-- 事件记录 -->
+          <div class="tab-cont tab-cont-2 tab-cont-posttion" v-show="tab_index===2">
+            <hs-search class="hs-search-2" v-model="search_text_2" placeholder="请输入搜索关键词" @search="onSearch"></hs-search>
+            <hs-list-load
+              class="list"
+              :width="sjjl.cont_width"
+              :height="sjjl.cont_height"
+
+              v-model="sjjl.loading"
+              :immediate-check="false"
+              :finished="sjjl.finished"
+              :finished-text="sjjl.finished_text"
+              :offset="1200"
+              @load="getSjjl(sjjl.page)"
+
+              pull-refresh
+              @refresh="onRefreshSjjl"
+            >
+              <ul class="sjjl">
+                <template v-for="(item, index) in sjjl.list">
+                  <li class="sjjl-item shadow-item" @click="toDetail(item, 'sjjl')">
+                    <div class="top">
+                      <div class="msg">
+                        <span>{{item.deviceName}}</span>
+                        <em class="level" :data-level="item.alarmType">{{item.alarmType | level}}</em>
+                      </div>
+                      <div class="address">{{item.unitAddress}}</div>
+                      <div class="time">{{item.creationTime.replace(/-/g, '/')}}</div>
+                    </div>
+                    <div class="bottom">
+                      <div class="state">{{item.statement}}</div>
+                    </div>
+                  </li>
+                </template>
+              </ul>
+            </hs-list-load>
+            <hs-list-null v-model="sjjl.show_list_null"></hs-list-null>
+          </div>
+
+          <!-- 防火巡查 -->
+          <div class="tab-cont" v-show="tab_index===3">
+            <div class="chart shadow-item">
+              <div class="name">
+                <i></i><span class="text">巡查列表</span>
+                <!--<a :href="'../patrolList/staffList.html?id='+id" class="look">>></a>-->
+                <span class="look iconfont icon-choose-arrow" @click="toList(1)" style="color:#9e9e9e;"></span>
+              </div>
+              <div class="data">
+                <div class="dd-1">
+                  <span class="num">{{fhxc.totalTourPointCount}}</span>
+                  <span class="txt">巡查点位</span>
+                </div>
+                <div class="dd-2">
+                  <span class="num">{{fhxc.doneTourPointCount}}</span>
+                  <span class="txt">已纳入点位</span>
+                </div>
+                <div class="dd-3">
+                  <span class="num">{{fhxc.undoTourPointCount}}</span>
+                  <span class="txt">未纳入点位</span>
+                </div>
+              </div>
+            </div>
+            <!---->
+            <div class="chart shadow-item">
+              <div class="name">
+                <i></i><span class="text">隐患列表</span>
+                <!--<a :href="'../warnList/staffList.html?id='+id" class="look">>></a>-->
+                <span class="look" @click="toList(2)">&gt;&gt;</span>
+              </div>
+              <div class="data">
+                <div class="dd-1">
+                  <span class="num">{{fhxc.totalHiddenDangerCount}}</span>
+                  <span class="txt">隐患总数</span>
+                </div>
+                <div class="dd-2">
+                  <span class="num">{{fhxc.openHiddenDangerCount}}</span>
+                  <span class="txt">待整改隐患</span>
+                </div>
+                <div class="dd-3">
+                  <span class="num">{{fhxc.closeHiddenDangerCount}}</span>
+                  <span class="txt">已整改隐患</span>
+                </div>
+              </div>
+            </div>
+            <div class="chart shadow-item">
+              <div class="name"><i></i><span class="text">隐患占比率</span></div>
+              <div class="iframe-wrap">
+                <!--<iframe class="frame" src="http://192.168.10.37:8898/thinkReport/board/patrolStatistics/HtrClassifyRate/" frameborder="0"></iframe>-->
+              </div>
+              <div class="xf-title">消防设施隐患分布</div>
+              <table class="table">
+                <template v-for="num in fhxc_row">
+                  <tr>
+                    <td v-for="(item, index) in fhxc.hiddenDangerRage.slice((num-1)*3, (num)*3)">
+                      <span class="num">{{item.value}}</span>
+                      <span class="txt">{{item.name}}</span>
+                    </td>
+                  </tr>
+                </template>
+              </table>
+              <!--<div class="data-wrap">
+                <div class="data-box" v-for="(item, index) in fhxc.hiddenDangerRage" :key="index">
+                  <span class="txt">{{item.name}}</span>
+                  <span class="num">{{item.value}}</span>
+                </div>
+              </div>-->
+            </div>
+            <div style="height: .3rem;"></div>
+          </div>
+
+          <!-- 消防维保 -->
+          <div class="tab-cont tab-cont-4 tab-cont-posttion" v-show="tab_index===4">
+            <hs-search class="hs-search-4" v-model="search_text_4" placeholder="请输入搜索关键词" @search="onSearch"></hs-search>
+            <hs-list-load
+              class="list"
+              :width="xfwb.cont_width"
+              :height="xfwb.cont_height"
+
+              v-model="xfwb.loading"
+              :immediate-check="false"
+              :finished="xfwb.finished"
+              :finished-text="xfwb.finished_text"
+              :offset="1200"
+              @load="getXfwb(xfwb.page)"
+
+              pull-refresh
+              @refresh="onRefreshXfwb"
+            >
+              <template v-for="(item, index) in xfwb.list">
+                <ul class="xfwb">
+                  <li class="xfwb-item shadow-item" @click="toDetail(item, 'xfwb')">
+                    <div class="top">
+                      <div class="msg"><span>{{item.taskName}}</span></div>
+                      <!--<div class="time"><span>创建时间：{{item.taskStartTime}}</span></div>-->
+                      <div class="t-txt">维保公司：<span>{{item.repairCompanyName}}</span></div>
+                      <div class="t-txt">创建时间：<span>{{item.taskStartTime.replace(/-/g, '/')}}</span></div>
+                    </div>
+                    <div class="bottom">
+                      <div class="state">{{item.currentStatus | xfwbState}}</div>
+                    </div>
+                  </li>
+                </ul>
+              </template>
+            </hs-list-load>
+            <hs-list-null v-model="xfwb.show_list_null"></hs-list-null>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hs-go-back v-show="tab_index===2" cont-ele=".struc .main .tab-cont-2 .hs-list-load" item-ele=".struc .main .tab-cont-2 .sjjl-item" :list="sjjl.list" :total="sjjl.total"></hs-go-back>
+    <hs-go-back v-show="tab_index===4" cont-ele=".struc .main .tab-cont-4 .hs-list-load" item-ele=".struc .main .tab-cont-4 .xfwb-item" :list="xfwb.list" :total="xfwb.total"></hs-go-back>
+
+    <top-filter v-model="screen_show_2" :select="select_2" hide-title @confirm="confirm"></top-filter>
+    <top-filter v-model="screen_show_4" :select="select_4" hide-title @confirm="confirm"></top-filter>
+  </div>
+</div>
+
+<script src="../js/es6-promise.auto.min.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/axios.min.js"></script>
+<script src="../js/http.js"></script>
+<script src="../js/getQueryVariable.js"></script>
+<script src="../js/components.js"></script>
+<!-- mui -->
+<script src="../js/mui/mui.min.js"></script>
+<script src="../js/mui/mui.imageViewer.js"></script>
+<script src="../js/mui/mui.previewimage.js"></script>
+<script src="../js/mui/mui.zoom.js"></script>
+
+<script>
+  (function () {
+    var vm = new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          tabs: ['基本信息', '可视化', '事件记录', '防火巡查', '消防维保'],
+          tab_index: 0,
+
+          screen_show_2: false, // 控制事件记录筛选显示
+          screen_show_4: false, // 控制消防维保筛选显示
+          search_text_2: '',
+          search_text_4: '',
+
+          evtype: '', // 告警类型(事件类型)
+          svtype: '', // 单位类型
+          select_2: [
+            {
+              title: '事件类型', // title
+              last_text: '', // 最后一次点击的选项的文本
+              options: [
+                {text: 'A类', active: false, id: 'A'},
+                {text: 'B类', active: false, id: 'B'},
+                {text: 'C类', active: false, id: 'C'},
+                {text: 'D类', active: false, id: 'D'},
+                {text: '人员离岗', active: false, id: 'L'},
+                {text: '屏蔽备案', active: false, id: 'P'}
+              ]
+            },
+            {
+              title: '单位类型', // title
+              last_text: '', // 最后一次点击的选项的文本
+              options: [ // -1：全部；0：火灾高危单位；1：其他重点单位；2：十小场所；3：其他一般单位
+                {text: '火灾危险单位', active: false, id: 0},
+                {text: '其他重点单位', active: false, id: 1},
+                {text: '十小场所', active: false, id: 2},
+                {text: '其他一般单位', active: false, id: 3}
+              ]
+            }
+          ],
+          wbtype: '', // 消防维保状态
+          select_4: [ // -1：全部；1：待指派；2：未开始；3：未确认；4：进行中；5：已完成；6：被取消；
+            {
+              title: '维保任务状态', // title
+              last_text: '', // 最后一次点击的选项的文本
+              options: [
+                {text: '待指派', active: false, id: 1},
+                {text: '未开始', active: false, id: 2},
+                {text: '未确认', active: false, id: 3},
+                {text: '进行中', active: false, id: 4},
+                {text: '已完成', active: false, id: 5},
+                {text: '被取消', active: false, id: 6}
+              ]
+            }
+          ],
+
+          id: '', // 单位的id
+          name: '', // 单位名称
+          is_success: false, // 请求基本信息是否成功
+          info: { // 基本信息
+            archivalList: [],
+            safetyPersonList: [],
+            officeAreaList: [],
+            externalPhotos: [],
+          },
+          testtesttest: false,
+          info_state: {
+            t0: true,
+            t1: true,
+            t2: true,
+            t3: true,
+            t4: true
+          },
+
+          fhxc: {}, // 防火巡查数据
+          fhxc_row: 0, // 由于使用 table 这里要计算有多少行
+
+          sjjl: { // 事件记录列表
+            cont_width: '375px', // 组件宽度
+            cont_height: '375px', // 组件高度
+            loading: false, // 是否正在加载
+            finished: false, // 是否全部加载完成
+            page: 0,
+            list: [],
+            finished_text: '没有更多了',
+            show_list_null: false,
+            total: 0
+          },
+
+          xfwb: { // 消防维保
+            cont_width: '375px', // 组件宽度
+            cont_height: '375px', // 组件高度
+            loading: false, // 是否正在加载
+            finished: false, // 是否全部加载完成
+            page: 0,
+            list: [],
+            finished_text: '没有更多了',
+            show_list_null: false,
+            total: 0
+          }
+        }
+      },
+      watch: {
+        tab_index: function (val) {
+          switch (val) {
+            case 0:
+              this.getjbxx()
+              break;
+            case 1:
+
+              break;
+            case 2:
+              this.getListWH()
+              this.getSjjl()
+              break;
+            case 3:
+              this.$nextTick(function () {
+                this.addIframe()
+              }.bind(this))
+              this.getFhxc()
+              break;
+            case 4:
+              this.getListWH()
+              this.getXfwb()
+              break;
+            default:
+              break
+          }
+        }
+      },
+      created: function () {
+        var query = getQueryVariable()
+        this.id = query.id
+        this.name = query.name
+      },
+      mounted: function () {
+        this.getjbxx()
+      },
+      filters: {
+        level: function (val) {
+          if (!val) {
+            return '未知状态'
+          }
+          return /(A|B|C|D)/.test(val) ? val + '类告警' : val
+        },
+        xfwbState: function (val) {
+          // 1：待指派；2：未开始；3：未确认；4：进行中；5：已完成；6：被取消
+          return ['', '待指派', '未开始', '未确认', '进行中', '已完成', '被取消'][Number(val)]
+        }
+      },
+      methods: {
+        onClickLeft: function () {
+          window.location.href = 'wutos://finish'
+        },
+        onClickRight: function () {
+          if (this.tab_index === 2) {
+            this.screen_show_2 = !this.screen_show_2
+          } else if (this.tab_index === 4) {
+            this.screen_show_4 = !this.screen_show_4
+          }
+        },
+        // 获取list
+        getListWH: function () {
+          var This = this
+
+          this.$nextTick(function () {
+            var a = ''
+            var b = ''
+            if (This.tab_index === 2) {
+              a = '.struc .main .tab-cont-2'
+              b = '.struc .main .hs-search-2'
+            } else if (This.tab_index === 4) {
+              a = '.struc .main .tab-cont-4'
+              b = '.struc .main .hs-search-4'
+            }
+
+            setTimeout(function () {
+              var ele = document.querySelector(a)
+              var eSearch = document.querySelector(b)
+
+              This.sjjl.cont_width = This.xfwb.cont_width = ele.clientWidth + 'px'
+              This.sjjl.cont_height = This.xfwb.cont_height = ele.clientHeight - eSearch.clientHeight + 'px'
+            })
+          })
+        },
+        // 确认筛选
+        confirm: function (data) {
+          if (this.tab_index === 2) {
+            this.getOptions2(data)
+            this.sjjl.loading = false
+            this.sjjl.finished = false
+            this.sjjl.list = []
+            this.sjjl.page = 0
+
+            this.onClickRight()
+            this.getSjjl(this.sjjl.page)
+          } else if (this.tab_index === 4) {
+            this.getOptions4(data)
+
+            this.xfwb.loading = false
+            this.xfwb.finished = false
+            this.xfwb.list = []
+            this.xfwb.page = 0
+
+            this.onClickRight()
+            this.getXfwb(this.xfwb.page)
+          }
+        },
+        getOptions2: function (data) {
+          var evtype = '' // 事件类型
+          var svtype = '' // 单位类型
+
+          for (var i = 0; i < data.length; i++) {
+            var item = data[i];
+            for (var j = 0; j < item.options.length; j++) {
+              var option = item.options[j];
+              if (option.active) {
+                switch (i) {
+                  case 0:
+                    evtype += ',' + option.id
+                    break;
+                  case 1:
+                    svtype += ',' + option.id
+                    break;
+                }
+              }
+            }
+          }
+          this.evtype = evtype.replace(/^,/, '')
+          this.svtype = svtype.replace(/^,/, '')
+        },
+        getOptions4: function (data) {
+          var wbtype = '' // 消防维保状态
+
+          for (var i = 0; i < data.length; i++) {
+            var item = data[i];
+            for (var j = 0; j < item.options.length; j++) {
+              var option = item.options[j];
+              if (option.active) {
+                switch (i) {
+                  case 0:
+                    wbtype += ',' + option.id
+                    break;
+                }
+              }
+            }
+          }
+          this.wbtype = wbtype.replace(/^,/, '')
+        },
+        onSearch: function () {
+          // console.log('search');
+          if (this.tab_index === 2) {
+            this.sjjl.loading = false
+            this.sjjl.finished = false
+            this.sjjl.page = 0
+            this.sjjl.list = []
+
+            this.getSjjl()
+          } else if (this.tab_index === 4) {
+            this.xfwb.loading = false
+            this.xfwb.finished = false
+            this.xfwb.page = 0
+            this.xfwb.list = []
+
+            this.getXfwb()
+          }
+        },
+        unfold: function (index) {
+          this.info_state[index] = !this.info_state[index]
+        },
+        toDetail: function (item, type) {
+          var href = ''
+          var path = '../../../home/'
+          var path1 = ''
+          var query = '?id=' + item.id
+          var status = ['L0', 'L1', 'L2', 'L3', 'L4']
+          var file = [
+            'CategoryAWarning_Tobeconfirmed.html',
+            'CategoryAWarning_Realfirealarm.html',
+            'CategoryAWarning_Falsepositives.html',
+            'CategoryAWarning_AlreadyLnPolice.html',
+            'CategoryAWarning_Fireextinguished.html'
+          ]
+          var fileName = ''
+          if (type === 'sjjl') {
+            //A
+            if (item.alarmType == 'A') {
+              path1 = 'detailsPage/'
+              fileName = file[status.indexOf(item.status)] //
+            }
+            if (item.alarmType == 'B' || item.alarmType == 'C' || item.alarmType == 'D') {
+              path1 = 'details/'
+              fileName = 'BCDdetails.html'
+            }
+            if (item.alarmType == '人员离岗') {
+              path1 = 'details/'
+              fileName = 'StaffLeave.html'
+            }
+            if (item.alarmType == '屏蔽备案') {
+              path1 = 'details/'
+              fileName = 'ShieldingDetails.html'
+            }
+            href = path + path1 + fileName + query
+          }
+          if (type === 'xfwb') {
+            href = '../../MaintenanceCompany/MaintenanceDetails.html' + query
+          }
+          window.location.href = href
+        },
+        toList: function (type) {
+          if (type === 1) {
+            window.location.href = '../patrolList/index.html?id=' + this.id
+          }
+          if (type === 2) {
+            window.location.href = '../warnList/index.html?id=' + this.id
+          }
+        },
+
+        // 获取基本信息数据
+        getjbxx() {
+          var This = this;
+          //http://192.168.10.38:5000/Organization/GetUnitDetailById?id=b36d2f6868df4ad997a7d3548c87a151
+          this.apiGet_new('/Organization/GetUnitDetailById', {
+           // id: this.id
+           id:'b36d2f6868df4ad997a7d3548c87a151'
+          }).then(function (res) {
+            // if (!res.data.archivalList) res.data.archivalList = []
+            // if (!res.data.safetyPersonList) res.data.safetyPersonList = []
+            // if (!res.data.officeAreaList) res.data.officeAreaList = []
+
+            try {
+              if (res.data.externalPhotos) res.data.externalPhotos = JSON.parse(res.data.externalPhotos)
+            } catch (e) {
+              res.data.externalPhotos = [{FileName: "", FileSize: ""}]
+            }
+
+          //   console.log(res.data.externalPhotos);
+            res.data.image = imageURL + res.data.externalPhotos[0].FileName
+
+            This.info = res.data
+
+            // console.log(This.info);
+            // mui预览图片
+            This.$nextTick(function () {
+              previewImg()
+            })
+
+          }).catch(function (err) {
+            setTimeout(function () {
+              This.getjbxx()
+            }, 2000)
+          })
+        },
+        // 获取事件记录列表数据
+        getSjjl: function (index) {
+          var This = this
+
+          this.apiGet('/Unit/GetUnitAlarmPageList', {
+            limit: 20, // 每页条数	 int
+            offset: this.sjjl.page * 20, //	当其显示起始数据 int,
+            keyword: this.search_text_2,	// 模糊匹配
+            unitid: this.id, // 单位id
+            // devicetype: '', // 设备类型
+            uniteventtype: this.evtype, // 告警类型
+            svtype: this.svtype, // 单位类型
+            // svunit: '', // 管辖
+            // svuser: '' // 管段
+          }).then(function (res) {
+            //
+            var data = res.data.rows
+            This.sjjl.total = res.data.total
+
+            if (!data) data = [];
+            for (var j = 0; j < data.length; j++) {
+              This.sjjl.list.push(data[j])
+            }
+
+            if (data.length === 0) {
+              This.sjjl.finished = true;
+              if (This.sjjl.list.length === 0) {
+                // 显示缺省页
+                This.sjjl.show_list_null = true;
+                This.sjjl.finished_text = '';
+              }
+            }
+            This.sjjl.loading = false
+          }).catch(function (reason) {
+            This.sjjl.loading = false
+            This.sjjl.finished = true
+          })
+
+          this.sjjl.page++
+        },
+        // 事件记录下拉刷新
+        onRefreshSjjl: function () {
+          this.sjjl.finished = false
+          this.sjjl.list = []
+          this.sjjl.page = 0
+          this.sjjl.show_list_null = false
+          setTimeout(function () {
+            //
+            this.getSjjl(this.sjjl.page)
+          }.bind(this), 1000)
+        },
+        // 获取防火巡查数据
+        getFhxc: function () {
+          this.apiGet('/Unit/GetUnitMaintenanceStatisticData', {
+            unitid: this.id // 被维保公司id
+          }).then(function (res) {
+            var data = res.data
+            if (!data.hiddenDangerRage) {
+              data.hiddenDangerRage = []
+            }
+
+            this.fhxc_row = Math.ceil(data.hiddenDangerRage.length / 3)
+
+            this.fhxc = data
+          }.bind(this)).catch(function (err) {
+
+          }.bind(this))
+
+          this.xfwb.page++
+        },
+        // 获取维保公司列表
+        getXfwb: function () {
+          this.apiGet('/Maintenance/GetMaintenanceTaskPageList', {
+            limit: 20, //页容量	是
+            offset: this.xfwb.page * 20, // 页数	是
+            keyword: this.search_text_4, // 	模糊匹配	否
+            // sort: '',	//排序字段	否
+            // order: '', // 排序方式	 否
+            // person: '', // 维保人员id 这里为被维保方，不传
+            // company: '', // 维保公司id 这里为被维保方，不传
+            status: this.wbtype, // 维保任务状态 否
+            repair: this.id // 被维保公司id
+          }).then(function (res) {
+            var data = res.data.rows
+            this.xfwb.total = res.data.total
+
+            if (!data) data = [];
+            for (var j = 0; j < data.length; j++) {
+              this.xfwb.list.push(data[j])
+            }
+
+            if (data.length === 0) {
+              this.xfwb.finished = true
+              if (this.xfwb.list.length === 0) {
+                // 显示缺省页
+                this.xfwb.show_list_null = true;
+                this.xfwb.finished_text = ''
+              }
+            }
+
+            this.xfwb.loading = false
+          }.bind(this)).catch(function (err) {
+            this.xfwb.loading = false
+            this.xfwb.finished = true
+          }.bind(this))
+
+          this.xfwb.page++
+        },
+        // 消防维保下拉刷新
+        onRefreshXfwb: function () {
+          this.xfwb.finished = false
+          this.xfwb.list = []
+          this.xfwb.page = 0
+
+          this.xfwb.show_list_null = false
+          setTimeout(function () {
+            this.getXfwb(this.xfwb.page)
+          }.bind(this), 1000)
+        },
+        addIframe: function () {
+          // iframe 会加载较慢，影响页面打开速度，延迟加载
+          var srcArr = [
+            'http://192.168.10.37:8898/thinkReport/board/patrolStatistics/HtrClassifyRate/',
+          ]
+          var eChart = document.querySelectorAll('.tab-cont .chart .iframe-wrap')
+
+          for (var i = 0; i < eChart.length; i++) {
+            var eIframe = document.createElement('iframe')
+            eIframe.className = 'frame'
+            eIframe.src = srcArr[i]
+            eIframe.frameborder = 0
+
+            eChart[i].appendChild(eIframe)
+          }
+        }
+      }
+    });
+
+    // 图片预览
+    function previewImg() {
+      mui.previewImage();
+    }
+
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="webkit">
+    <title>系统管理-联勤保障单位</title>
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layui/css/layui.css">
+    <link rel="stylesheet" href="assets/css/ztree/css/zTreeStyle/zTreeStyle.css">
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/systemDataMaintenance.css">
+    <style>
+        .ztree li a.curSelectedNode span {
+            color: orange;
+        }
+        .ztree li a span:hover{
+            color: orange;
+        }
+        .ztree li span{
+            font-size:14px;
+        }
+        .input_box_big .layui-edge {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            margin-top: -3px;
+            cursor: pointer;
+            border-width: 6px;
+            border-top-color: #c2c2c2;
+            border-top-style: solid;
+            transition: all .3s;
+            -webkit-transition: all .3s;
+        }
+        .drop_dwlb{
+            /*position: relative;*/
+        }
+        #select1{
+            position: absolute;
+            top:40px;
+            right:0;
+            width: 100%;
+            background-color: #0c2b40;
+            border: 1px #1cacf2 solid;
+            color: #93a6c8;
+            margin-top: 10px;
+            padding-top:5px;
+            display: none;
+            z-index:999;
+        }
+        #select1 option {
+            padding:2px 0;
+            color:#FFF;
+        }
+        #unitType::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            /* border: 2px solid; */
+            background: url(assets/img/gd.png) no-repeat;
+        }
+       .layui-select-title{
+           height: 40px;
+           line-height: 40px;
+       }
+        .layui-form-select dl {
+            overflow-y: auto;
+            margin-right: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .layui-form-select dl::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            /* border: 2px solid; */
+            background: url(assets/img/gd.png) no-repeat;
+        }
+        .layui-form-select dl dd {
+            font-size: 14px;
+            background-color: #0d1f2e;
+            color: #fff;
+        }
+        .layui-form-select dl {
+            background-color: transparent;
+            border: 1px #086ae3 solid;
+        }
+        .layui-form-select dl dd.layui-this {
+            background-color: #116baf;
+            color:#FFF;
+        }
+        .layui-form-select dl dd:hover {
+            background-color: #116baf;
+            color:#FFF;
+        }
+        .layui-form-select dl::-webkit-scrollbar-thumb,
+        #unitType{
+            border-radius: 0px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+            background-color: #328eda;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <!-- 头部 -->
+        <div class="head">
+            <ul class="clearfix">
+                <!-- <li>用户管理</li>
+                <li>权限设置</li> -->
+                <li class="active">人员机构</li>
+            </ul>
+        </div>
+        <div class="main">
+            <!-- 消防机构 -->
+            <div class="main_left">
+                <h3 class="title">消防机构</h3>
+                <div class="search_box clearfix">
+                    <div class="inp">
+                        <input type="text" id="s_txt">
+                    </div>
+                    <div class="search_btn" id="tree_search">
+                        <i class="searchicon"></i>
+                    </div>
+                </div>
+                <div class="tab_left">
+                    <ul id="treeNode" class="ztree mobTree">
+                    </ul>
+                </div>
+            </div>
+            <!-- 中 -->
+            <div class="main_center">
+                <!-- 联勤保障单位查询 -->
+                <div class="person_search">
+                    <h3 class="title" style="background-size: 205px 106px;">联勤保障单位</h3>
+                    <form action="" class="layui-form">
+                        <div class="form_box">
+                            <ul>
+                                <li>
+                                    <span>单位名称</span>
+                                    <div class="input_box_big">
+                                        <input type="text" placeholder="请输入待检索的关键字" id="dwmcfilter" autocomplete="off">
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>单位类别</span>
+                                       <div class="layui-input-block input_box_big" style="z-index:999; background-color: #0c2b40">
+                                            <select name="unitType" lay-verify="required" id="unitType">
+                                                <option value=""></option>
+                                                 <option value="车辆修理">车辆修理</option>
+                                                 <option value="医疗救护">医疗救护</option>
+                                                 <option value="餐饮">餐饮</option>
+                                                 <option value="住宿">住宿</option>
+                                                  <option value="油料">油料</option>
+                                                 <option value="通信">通信</option>
+                                                  <option value="器材修理">器材修理</option>
+                                                  <option value="交通运输">交通运输</option>
+                                                  <option value="装备器材供应">装备器材供应</option>
+                                                  <option value="其他社会救助">其他社会救助</option>
+                                            </select>
+                                     </div>
+                                </li>
+                            </ul>
+                       </div>
+                    </form>
+                    <div class="btn_box">
+                        <button onclick="getUnitList()">查询</button>
+                        <button onclick="reset()">重置</button>
+                    </div>
+                 </div>
+                <!-- 查询结果 -->
+                <div class="search_result">
+                    <h3 class="title">查询结果</h3>
+                    <div class="table_box">
+                        <div class="all_del_box">
+                            <input type="checkbox" id="check" class="">
+                            <label for="check"></label>
+                        </div>
+                        <span class="all_btn">全选</span>
+                        <button id="delArr">删除</button>
+                        <table class="layui-hide" id="test" lay-filter="test"></table>
+                    </div>
+                </div>
+            </div>
+            <from lay-filter="example" class="layui-form">
+                <!-- 人员信息详情 -->
+                <div class="main_right" style="">
+                    <h3>单位信息详情</h3>
+                    <div class="btn_box">
+                        <div class="btn" lay-submit lay-filter="formAdd" onclick="addUser()">
+                            新增
+                            <i class="addicon"></i>
+                        </div>
+                        <div class="btn" lay-submit lay-filter="formDemo">
+                            保存
+                            <i class="saveicon"></i>
+                        </div>
+                    </div>
+                    <div class="penson_info">
+                        <ul>
+
+                            <input type="text" name="DWBH" class="layui-input" style="display: none;" value="">
+                            <input type="text" name="sjszjg" id="xfjg" class="layui-input" style="display: none;" value="">
+                            <li>
+                                <div class="b_box">
+                                    <span>单位名称</span>
+                                    <div class="inp_box">
+                                        <input type="text" name="DWMC" class="layui-input">
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="b_box">
+                                    <span>单位地址</span>
+                                    <div class="inp_box">
+                                        <input type="text" name="DWDZ">
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="l_box">
+                                    <span>经度</span>
+                                    <div class="inp_box">
+                                        <input type="text" name="JD">
+                                    </div>
+                                </div>
+                                <div class="l_box">
+                                    <span>纬度</span>
+                                    <div class="inp_box">
+                                        <input type="text" name="WD">
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="l_box">
+                                    <span>联系人员</span>
+                                    <div class="inp_box">
+                                        <input type="text" name="LXR">
+                                    </div>
+                                </div>
+                                <div class="l_box">
+                                    <span>联系电话</span>
+                                    <div class="inp_box">
+                                        <input type="text" name="LXDH">
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="l_box">
+                                    <span>值班电话</span>
+                                    <div class="inp_box">
+                                        <input type="text" name="ZBDH">
+                                    </div>
+                                </div>
+                                <div class="l_box">
+                                    <span>启用日期</span>
+                                    <div class="inp_box">
+                                        <input type="text" name="QYRQ">
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="b_box">
+                                    <span>所在地消防机构</span>
+                                    <div class="inp_box">
+                                        <input type="text" name="SZDXFJG" id="xfjgmc">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </from>
+        </div>
+    </div>
+</body>
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-xs editBtn" lay-event="edit"></a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs delBtn" lay-event="del"></a>
+</script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/css/layui/layui.all.js"></script>
+<script src="assets/css/ztree/js/jquery.ztree.core.min.js"></script>
+<script src="assets/css/ztree/js/jquery.ztree.exhide.min.js"></script>
+<script src="assets/js/tree_search.js"></script>
+<script src="assets/js/apiConst.js"></script>
+<script>
+    $(function () {
+        layui.use('table', function () {
+            getUnitList(param);
+        })
+    })
+    //渲染表格
+    function initTable(data) {
+        var table = layui.table;
+        var tableIns = table.render({
+            elem: '#test',
+            height: 510,
+            data: data.list,
+            cols: [
+                [{
+                    type: 'checkbox',
+                    field: 'DWBH',
+                },
+                {
+                    field: 'DWLX',
+                    title: '单位类型',
+                    width: '20%',
+                    align: 'left'
+                },
+                {
+                    field: 'DWMC',
+                    title: '单位名称',
+                    width: '40%',
+                    align: 'left'
+                },
+                {
+                    field: 'LXDH',
+                    title: '联系电话',
+                    width: '20%',
+                    align: 'left'
+                }
+                    ,
+                {
+                    fixed: 'right',
+                    width: '10%',
+                    align: 'center',
+                    toolbar: '#barDemo'
+                }]
+            ]
+        });
+        form = layui.form;
+        form.val('example', {});
+        //修改接口：点击保存按钮
+       // http://localhost:11800/datagather/transmit/getDataGather/insOrUpdateLqbzdw/update
+        form.on('submit(formDemo)', function (data) {
+            var resData = JSON.stringify(data.field);
+            //通过ajax提交数据
+            $.ajax({
+                url: baseApiUrl + '/datagather/transmit/getDataGather/insOrUpdateLqbzdw/update',
+                type: 'post',
+                data: resData,
+                contentType: 'application/json',
+                dataType: 'json',
+                success: function (res) {
+                    console.log(res);
+                    if (res.code == 0) {
+                        layer.msg("保存成功");
+                    }
+
+                },
+                error: function (res) {
+                    layer.msg("保存失败");
+                }
+            })
+
+        });
+        //formAdd  新增接口：http://localhost:11800/datagather/transmit/getDataGather/insOrUpdateLqbzdw/insert
+        form.on('submit(formAdd)', function (data) {
+          //  alert('点击新增');
+            var resData = JSON.stringify(data.field);
+            console.log('新增数据是'+resData);
+            //通过ajax提交数据
+            $.ajax({
+                url: baseApiUrl + '/datagather/transmit/getDataGather/insOrUpdateLqbzdw/insert',
+                type: 'post',
+                data: resData,
+                contentType: 'application/json',
+                dataType: 'json',
+                success: function (res) {
+                    console.log(res);
+                    if (res.code == 0) {
+                        layer.msg("保存成功");
+                    }
+
+                },
+                error: function (res) {
+                    layer.msg("保存失败");
+                }
+            })
+
+        });
+        $("#delArr").click(function () {
+
+            var checkStatus = table.checkStatus('test');
+            console.log(checkStatus);
+            var resData = $.map(checkStatus.data, function (item) {
+                // return item.id;
+                return item.DWBH
+            });
+            console.log(resData);
+               deletePeople(resData);
+
+
+        });
+        //删除接口：  http://localhost:11800/datagather/transmit/getDataGather/delLqbzdw/{id}
+
+        function deletePeople(resData) {
+
+            $.ajax({
+                // url: baseApiUrl + 'datagather/transmit/getDataGather/delLqbzdw' ,
+                // type: 'post',
+                url: baseApiUrl + 'datagather/transmit/getDataGather/delLqbzdw/'+resData,
+                type: 'delete',
+             //    data: JSON.stringify(resData),
+                contentType: 'application/json',
+                dataType: 'json',
+                success: function (res) {
+                    alert('删除了吗');
+                    console.log(res);
+                    if (res.code == 0) {
+                        layer.msg("删除成功");
+                        getUnitList();
+                        //obj.del();
+                        layer.close();
+                    }
+
+                },
+                error: function (res) {
+                    alert('删除失败');
+                    layer.msg("删除失败");
+                }
+            })
+        }
+        table.on('tool(test)', function (obj) {
+            var data = obj.data;
+            if (obj.event === 'del') {
+                layer.confirm('确认删除？', { btn: ['确定', '取消'], title: "提示" }, function () {
+                    resData = [data.DWBH];
+                    deletePeople(resData);
+                });
+
+            }
+        });
+        table.on('row(test)', function (obj) {
+            var data = obj.data;
+            if (obj.event === 'detail') {
+                layer.msg('ID：' + data.DWBH + ' 的查看操作');
+            } else if (obj.event === 'del') {
+                layer.confirm('确认删除？', function (index) {
+                    obj.del();
+                    layer.close(index);
+                });
+            } else if (obj.event === 'edit') {
+                layer.alert('编辑行：<br>' + JSON.stringify(data))
+            }
+            //JSON.stringify(data);往后台传string
+            form.val('example', data);
+        });
+    }
+
+
+    //设置参数
+    var offset = 1;
+    var param = [
+        '','',offset,10
+    ];
+
+//获取单位列表
+    //查询接口：http://localhost:11800/datagather/transmit/getDataGather  { "methodName":"getLqbzdw","params":[单位名称，单位类型，分页起始条数，pagesize]}
+
+    function getUnitList() {
+        param[0] = $('#dwmcfilter').val();
+        param[1] = $('#unitType option:selected').val();
+        console.log('单位名称是'+ param[0]);
+        console.log('单位类别是'+ param[1]);
+        $.ajax({
+            url: baseApiUrl + "/datagather/transmit/getDataGather",
+            type: 'post',
+            // data: JSON.stringify(param),
+            data: JSON.stringify({
+                methodName:'getLqbzdw',
+                params:param
+            }),
+            contentType: 'application/json',
+            //async: false,
+            dataType: 'json',
+            success: function (res) {
+               // console.log('单位全部列表获取成功');
+               //console.log(res.data);
+                res.data.list = res.data.rows;
+                var data = {
+                    "code": 0,
+                    "msg": "",
+                    "totalCount": res.data.total,
+                    "list": res.data.rows
+                }
+                // 表格渲染
+                initTable(data);
+            },
+            error: function (res) {
+                console.log('数据获取失败');
+            }
+        })
+    }
+
+  //重置
+    function reset(){
+        $('#dwmcfilter').val('');
+        $('#unitType option:selected').val('');
+        getUnitList(param);
+    }
+
+    var form;
+    //添加用户
+    //新增接口：http://localhost:11800/datagather/transmit/getDataGather/insOrUpdateLqbzdw/insert
+    //参数： {"字段名":"字段值"//}
+    function addUser() {
+    //    DWMC  DWDZ JD  WD LXR LXDH ZBDH QYRQ
+    //     form.val('example', {
+    //         "DWBH": "",
+    //         "DWMC": "",
+    //         "DWDZ": "",
+    //         "JD": "",
+    //         "WD": "",
+    //         "LXR": "",
+    //         "LXDH": "",
+    //         "ZBDH": '',
+    //         "QYRQ": '',
+    //     });
+
+    }
+    var zTreeObj;
+    //生成树配置
+    var setting = {
+        view: {
+            showLine: false, //不显示连接线
+            dblClickExpand: false
+            // showIcon: false
+        },
+        data: {
+            simpleData: {
+                enable: true,
+                idKey: "jgtree",
+                pIdKey: "pid",
+                rootPId: "010000004200000042001000"
+            }, key: {
+                name: "jgjc"
+            }
+        },
+
+        callback: {
+            onClick: treeOnClick,
+            onDblClick: treeDblClick
+        }
+    };
+
+    function treeDblClick(e, treeId, treeNode) {
+        clearTimeout(timer);
+        var zTree = $.fn.zTree.getZTreeObj("treeNode");
+        zTree.expandNode(treeNode);
+    }
+
+    //展开
+    var timer = null;
+    function treeOnClick(e, treeId, treeNode) {
+
+        console.log(e);
+        clearTimeout(timer);
+        timer = setTimeout(function () { //在单击事件中添加一个setTimeout()函数，设置单击事件触发的时间间隔 
+           // $("#xfjg").val( treeNode.jgtree);
+            $("#xfjgmc").val( treeNode.jgjc);
+            var zTree = $.fn.zTree.getZTreeObj("treeNode");
+           // param.sjszjg = treeNode.jgtree;
+            getUnitList();
+
+        }, 300);
+
+    }
+    //渲染机构树
+    function initTree() {
+        //$.get(baseApiUrl+"org/getOrgLevel",function(res){
+        $.get(baseApiUrl + "/org/getOrgLevel", function (res) {
+            // 树结构渲染
+            console.log(res.data);
+            zTreeObj = $.fn.zTree.init($("#treeNode"), setting, res.data);
+            zTreeObj.expandAll(true);
+            // 搜索
+            //fuzzySearch('treeNode', '#s_txt', false, true)
+        })
+    }
+
+    $(function () {
+        initTree();
+
+        //单位类别下拉
+        $('.drop_dwlb').click(function(){
+           // $(this).find('#select1').show();
+            // $(this).find('.layui-edge').rotate('360deg');
+        });
+
+        // 顶部切换
+        $(".head ul li").click(function () {
+            $(".head ul li").removeClass('active');
+            $(this).addClass('active');
+            location.href = "p2_5.html";
+        });
+        // 左边tab切换
+        $(".tab_left .item a").click(function () {
+            $(".tab_left .item").removeClass('active');
+            $(this).parent('li.item').addClass('active');
+            $(this).next('.nav-item').slideToggle('fast');
+            $(this).find('i').toggleClass('down');
+        })
+
+        // 全选事件
+        $(".all_del_box").find('input').click(function () {
+            if ($(".all_del_box").find('input').hasClass('active')) {
+                $(".layui-table-body .layui-unselect.layui-form-checkbox").removeClass(
+                    'layui-form-checked');
+
+            } else {
+                $(".layui-table-body .layui-unselect.layui-form-checkbox").addClass(
+                    'layui-form-checked');
+
+            }
+            $(".all_del_box").find('input').toggleClass('active');
+        })
+
+
+
+
+        // 滚动加载
+        setTimeout(function(){
+            var num = 1;
+            // console.log('来了么哦');
+            $('.layui-table-body').scroll(function () {
+                var scrollTop = $(this).scrollTop();
+                var windowHeight = 429;
+                var scrollHeight = $(".layui-table-body .layui-table").height();
+                if (eval(scrollTop + windowHeight) == scrollHeight) {
+                    num++;
+                    console.log(num);
+                    offset = num;
+                    alert(offset);
+                    getUnitList();
+                }
+
+            })
+        },0)
+
+    })
+</script>
+
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="webkit">
+    <title>处置对象-其它情况</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/disposalOthers.css">
+    <style>
+
+        .head {
+            position: relative;
+            width: 1920px;
+            height: 98px;
+        }
+
+        .content {
+            position: relative;
+            width: 1920px;
+            height: 982px;
+        }
+
+        .arrow-row {
+            position: absolute;
+            width: 100%;
+            height: 118px;
+        }
+
+        .left {
+            position: absolute;
+            width: 621px;
+            height: 118px;
+            left: 0px;
+            background: url(../img/p2_5_left.png) no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .left:hover {
+            cursor: pointer;
+            background: url(../img/p2_5_left_hover.png) no-repeat;
+        }
+
+        .left div:first-child {
+            position: absolute;
+            right: 144px;
+            top: 54px;
+            width: 192px;
+            height: 24px;
+            font-size:24px;
+            font-family:MicrosoftYaHei-Bold;
+            font-weight:bold;
+            color:rgba(255,255,255,1);
+            text-align: right;
+        }
+
+        .left div:last-child {
+            position: absolute;
+            right: 99px;
+            top: 26px;
+        }
+
+        .left div:last-child img {
+            position: absolute;
+            top: -6px;
+        }
+
+        .right {
+            position: absolute;
+            width: 621px;
+            height: 118px;
+            right: 0px;
+            background: url(../img/p2_5_right.png) no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .right:hover {
+            cursor: pointer;
+            background: url(../img/p2_5_right_hover.png) no-repeat;
+        }
+
+        .right div:last-child {
+            position: absolute;
+            left: 144px;
+            top: 54px;
+            width: 192px;
+            height: 24px;
+            font-size:24px;
+            font-family:MicrosoftYaHei-Bold;
+            font-weight:bold;
+            color:rgba(255,255,255,1);
+            text-align: left;
+        }
+
+        .right div:first-child {
+            position: absolute;
+            left: 26px;
+            top: 26px;
+        }
+
+        .right div:first-child img {
+            position: absolute;
+            top: -6px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <!-- 头部 -->
+        <div class="head">
+            <!--<ul class="clearfix">-->
+                <!--<li class="active">数据维护</li>-->
+            <!--</ul>-->
+        </div>
+        <!-- 内容 -->
+        <div class="content">
+
+            <div class="arrow-row" style="top: 92px">
+                <div class="left" style="left:185px">
+                    <div>战备值守信息管理</div>
+                    <div><img src="../img/p2_5_p1.png"></div>
+                </div>
+                <div class="right" style="right:185px">
+                    <div><img src="../img/p2_5_p2.png"></div>
+                    <div>人员机构信息管理</div>
+                </div>
+            </div>
+
+            <div class="arrow-row" style="top: 248px">
+                <div class="left" style="left:56px">
+                    <div>作战实力信息管理</div>
+                    <div><img src="../img/p2_5_p3.png"></div>
+                </div>
+                <div class="right" style="right:56px">
+                    <div><img src="../img/p2_5_p4.png"></div>
+                    <div>应急力量信息管理</div>
+                </div>
+            </div>
+
+            <div class="arrow-row" style="top: 416px">
+                <div class="left" style="left:34px">
+                    <div>应急物质信息管理</div>
+                    <div><img src="../img/p2_5_p5.png"></div>
+                </div>
+                <div class="right" style="right:34px">
+                    <div><img src="../img/p2_5_p6.png"></div>
+                    <div>联勤保障单位管理</div>
+                </div>
+            </div>
+
+            <div class="arrow-row" style="bottom: 285px">
+                <div class="left" style="left:56px">
+                    <div>专家库信息管理</div>
+                    <div><img src="../img/p2_5_p7.png"></div>
+                </div>
+                <div class="right" style="right:56px">
+                    <div><img src="../img/p2_5_p8.png"></div>
+                    <div>预案信息管理</div>
+                </div>
+            </div>
+
+            <div class="arrow-row" style="bottom: 140px">
+                <div class="left" style="left:182px">
+                    <div>战评信息管理</div>
+                    <div><img src="../img/p2_5_p9.png"></div>
+                </div>
+                <div class="right" style="right:182px">
+                    <div><img src="../img/p2_5_p10.png"></div>
+                    <div>专业知识信息管理</div>
+                </div>
+            </div>
+
+            <div style="position: absolute;width: 541px;height: 529px;left: 695px;top: 171px;z-index: -1">
+                <img src="../img/p2_5_wuhanshi.png">
+            </div>
+
+        </div>
+    </div>
+</body>
+<script src="../js/jquery.min.js"></script>
+<script>
+    $(function () {
+
+        $(".left, .right").mouseover(function (e) {
+            var target = $(e.target);
+
+            while(target && !target.hasClass("left") && !target.hasClass("right")){
+                target = target.parent();
+            }
+            var img = target.find("img")[0];
+            var oldSrc = img.src;
+
+            var newSrc = oldSrc.slice(0,oldSrc.lastIndexOf("."))+"_green.png";
+            img.src = newSrc;
+        })
+
+        $(".left, .right").mouseout(function (e) {
+            var target = $(e.target);
+            while(target && !target.hasClass("left") && !target.hasClass("right")){
+                target = target.parent();
+            }
+            var img = target.find("img")[0];
+            var oldSrc = img.src;
+
+            var newSrc = oldSrc.slice(0,oldSrc.lastIndexOf("_"))+".png";
+            img.src = newSrc;
+        })
+        
+        $(".left, .right").click(function (e) {
+           location.href="p3.html";
+        });
+    })
+</script>
+
+</html>

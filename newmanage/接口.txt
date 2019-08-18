@@ -1,0 +1,63 @@
+联勤保障单位
+待开发页面地址：http://localhost:5588/Management/JointCompany.html
+参照页面地址：http://192.168.1.116:8888/ysx/wb/tpl/page/page8_1.html
+查询接口：http://localhost:11800/datagather/transmit/getDataGather
+{
+	"methodName":"getLqbzdw",
+	"params":[单位名称，单位类型，分页起始条数，pagesize]
+}
+
+新增接口：http://localhost:11800/datagather/transmit/getDataGather/insOrUpdateLqbzdw/insert
+post
+参数： {
+                "字段名":"字段值"
+        }
+修改接口：
+http://localhost:11800/datagather/transmit/getDataGather/insOrUpdateLqbzdw/update
+post
+参数： {
+                "字段名":"字段值"
+        }
+删除接口：
+http://localhost:11800/datagather/transmit/getDataGather/delLqbzdw/{id}
+delete
+
+应急保障信息管理
+待开发页面地址：http://localhost:5588/Management/EmergencySafeguard.html
+参照页面地址：http://192.168.1.116:8888/ysx/wb/tpl/page/page8_2.html
+查询接口：http://localhost:11800/datagather/transmit/getDataGather
+{
+	"methodName":"getYjbzdw",
+	"params":[单位名称，单位类别，分页起始条数，pagesize]
+}
+
+
+新增接口：http://localhost:11800/datagather/transmit/getDataGather/insOrUpdateYjbzdw/insert
+post
+参数： {
+                "字段名":"字段值"
+        }
+修改接口：
+http://localhost:11800/datagather/transmit/getDataGather/insOrUpdateYjbzdw/update
+post
+参数： {
+                "字段名":"字段值"
+        }
+删除接口：
+http://localhost:11800/datagather/transmit/getDataGather/delYjbzdw/{id}
+delete
+
+
+
+
+
+
+
+
+
+
+
+
+
+http://localhost:11800/datagather/transmit/getDataGather/delYjbzdw/{id}
+delete

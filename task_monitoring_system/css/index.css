@@ -1,0 +1,417 @@
+*{
+    margin: 0;
+    padding: 0;
+    color:#fff;
+    color:#fff;
+    user-select: none;
+}
+ul{
+    list-style: none;
+}
+html,body{
+    width: 1920px;
+    height: 1080px;
+    background: url("../img/bg.png") no-repeat;
+    background-size: 100%;
+    overflow: hidden;
+}
+.bg_title{
+    width: 100%;
+    height: 111px;
+    background: url("../img/bg_title.png");
+    text-align: center;
+    line-height: 80px;
+}
+.bg_title span{
+    font-size:36px;
+    font-weight:bold;
+    color:rgba(254,255,255,1);
+}
+.security_place{
+    position: fixed;
+    top: 121px;
+    left: 18px;
+    width: 514px;
+    height: 341px;
+    background: url("../img/security_place.png");
+}
+.security_place_title,.the_security_team_title{
+    position: absolute;
+    top: 55px;
+    left: 35px;
+    font-weight:bold;
+    font-size:20px;
+    color: #fff;
+}
+.the_security_team_title:nth-child(3){
+    top: 290px;
+}
+.polygon_title{
+    position:absolute;
+    left: -28px;
+    top: -30px;
+    width: 186px;
+    height: 109px;
+    line-height: 109px;
+    text-align: center;
+    font-size:22px;
+    color: #fff;
+    font-weight:bold;
+    background: url("../img/polygon_title.png");
+}
+.the_security_team{
+    position: fixed;
+    top: 476px;
+    left: 15px;
+    width: 517px;
+    height: 593px;
+    background: url("../img/the_security_team.png");
+}
+.today_task,.the_number_of_duty,.sent_to_the_vehicle{
+    position: fixed;
+    left: 591px;
+    top: 189px;
+    width: 251px;
+    color: #fff;
+    height: 128px;
+    text-align:center;
+    background: url("../img/today_task.png");
+}
+.the_number_of_duty{
+    left: 875px;
+}
+.sent_to_the_vehicle{
+    left: 1159px;
+    top: 189px;
+}
+.patrols,.emergency_rescue,.social_mission{
+    position: fixed;
+    text-align: center;
+    line-height: 64px;
+    top: 341px;
+    left: 686px;
+    width: 175px;
+    height: 57px;
+    background: url("../img/patrols.png");
+}
+.emergency_rescue{
+    line-height: 50px;
+}
+.patrols span{
+    color: #F42F17;
+}
+.emergency_rescue span{
+    color: #FF781E;
+}
+.social_mission span{
+    color:#27C944;
+}
+.emergency_rescue{
+    left: 893px;
+    background: url("../img/emergency_rescue.png");
+}
+.social_mission{
+    left: 1111px;
+    background: url("../img/social_mission.png");
+}
+.task_overview,.key_task{
+    position: fixed;
+    top: 433px;
+    left: 553px;
+    width: 889px;
+    height: 311px;
+    background: url("../img/task_overview.png");
+}
+.as_the_current{
+    position: absolute;
+    top: 60px;
+    left: 30px;
+    width: 188px;
+    height: 209px;
+    background: url("../img/as_the_current.png");
+}
+.key_task{
+    top: 757px;
+}
+.key_task_list{
+    position: absolute;
+    top: 80px;
+    left: 15px;
+    height: 205px;
+    overflow-y: scroll;
+}
+.key_task_list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.key_task_list::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #224a6b;
+    border-radius: 0px;
+}
+
+.key_task_list::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #328eda;
+}
+
+.key_task_list::-webkit-scrollbar-corner {
+    background: khaki;
+}
+.key_task ul li{
+    width: 852px;
+    height: 68px;
+    background: url("../img/key_task_li.png");
+}
+.task_feedback{
+    position: fixed;
+    top: 104px;
+    left: 1459px;
+    width: 444px;
+    height: 233px;
+    background: url("../img/task_feedback.png");
+}
+.hidden_danger_list{
+    position: fixed;
+    top: 337px;
+    left: 1459px;
+    width: 444px;
+    height: 415px;
+    background: url("../img/hidden_danger_list.png");
+}
+.list_list{
+    position: absolute;
+    top: 45px;
+    left: 3px;
+    height: 335px;
+    overflow-y: scroll;
+}
+.list_list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.list_list::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #224a6b;
+    border-radius: 0px;
+}
+
+.list_list::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #328eda;
+}
+
+.list_list::-webkit-scrollbar-corner {
+    background: khaki;
+}
+.hidden_danger_list ul{
+
+}
+.hidden_danger_list ul li{
+    cursor: pointer;
+    padding: 20px 50px;
+    box-sizing: border-box;
+    width: 420px;
+    height: 112px;
+    background: url("../img/hidden_danger_list_li.png") no-repeat;
+    background-size: 100% 100%;
+}
+.hidden_danger_list ul li p:nth-child(1){
+    font-size: 18px;
+    font-weight: bold;
+    color: #25AEEE;
+}
+.hidden_danger_list ul li p{
+    line-height: 25px;
+}
+.hidden_danger_list ul li:hover{
+    background: url("../img/hidden_danger_list_selected.png");
+    background-size: 100% 100%;
+}
+/*.hidden_danger_list .hidden_danger_list_selected{*/
+/*    background: url("../img/hidden_danger_list_selected.png");*/
+/*}*/
+.hidden_danger_list ul li:hover p:nth-child(1){
+    color: #FFBA00;
+}
+.trend_of_hidden_trouble{
+    position: fixed;
+    top: 749px;
+    left: 1459px;
+    width: 444px;
+    height: 330px;
+    background: url("../img/trend_of_hidden_trouble.png");
+}
+.status{
+    position: fixed;
+    right: 610px;
+    top: 111px;
+    font-size: 22px;
+    height: 50px;
+    color: #fff;
+    line-height: 50px;
+    font-weight:bold;
+}
+.status ul{
+    display: flex;
+}
+.status ul li{
+    margin-left: 50px;
+}
+.status ul li:nth-child(1) span{
+    color: #C52D23;
+}
+.status ul li:nth-child(2) span{
+    color: #27CC43;
+ }
+.status ul li:nth-child(3) span{
+    color: #EA7123;
+}
+.today_task_number{
+    margin-top: 10px;
+    font-size: 60px;
+}
+.r_title{
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    font-size:22px;
+    color: #fff;
+    text-shadow:0px 0px 20px #3FD1EB,0px 0px 10px #3FD1EB;
+}
+.r_body{
+    position: absolute;
+    top: 60px;
+    left: 40px;
+}
+.r_body li{
+    height: 45px;
+    line-height: 45px;
+}
+.r_body li:nth-child(1) span{
+    color:#EA2F1C;
+}
+.r_body li:nth-child(2) span{
+    color:#007CFE;
+}
+.r_body li:nth-child(3) span{
+    color:#27C944;
+}
+.key_task_th{
+    position: absolute;
+    top: 50px;
+    left: 15px;
+}
+.key_task_th span{
+    float: left;
+    font-size: 18px;
+    color:#45E4FE;
+    font-weight: bold;
+    text-align: center;
+    overflow: hidden;
+}
+.key_task ul li span{
+    float: left;
+    font-size: 18px;
+    color:#fff;
+    text-align: center;
+    line-height: 68px;
+    overflow: hidden;
+}
+.key_task_th span:nth-child(1),.key_task ul li span:nth-child(1){
+    width: 140px;
+}
+.key_task_th span:nth-child(2),.key_task ul li span:nth-child(2){
+     width: 170px;
+ }
+.key_task_th span:nth-child(3),.key_task ul li span:nth-child(3){
+    width: 120px;
+}
+.key_task_th span:nth-child(4),.key_task ul li span:nth-child(4){
+    width: 120px;
+}
+.key_task_th span:nth-child(5),.key_task ul li span:nth-child(5){
+    width: 170px;
+}
+.key_task_th span:nth-child(6),.key_task ul li span:nth-child(6){
+    width: 120px;
+}
+.task_box{
+    display: flex;
+    width: 90%;
+    position: absolute;
+    top: 70px;
+    left: 15px;
+}
+.task_feedback_box{
+    flex: 1;
+    text-align: center;
+}
+.box_top{
+    font-size: 60px;
+    height: 90px;
+}
+.task_feedback_box:nth-child(1) .box_top{
+     color: #FFBA00;
+ }
+.task_feedback_box:nth-child(2) .box_top{
+    color: #FF634A;
+}
+.task_feedback_box:nth-child(3) .box_top{
+    color: #F42F17;
+}
+.trend_of_hidden_trouble_title{
+    position: absolute;
+    top: 20px;
+    font-size:18px;
+    right: 30px;
+}
+#security_place_b{
+    position: absolute;
+    top: 60px;
+    left: 40px;
+    width: 450px;
+    height: 280px;
+}
+#the_security_team_title{
+    position: absolute;
+    top: 60px;
+    left: 40px;
+    width: 450px;
+    height: 260px;
+}
+#the_security_team_b,#the_security_team_c,#the_security_team_d{
+    position: absolute;
+    top: 288px;
+    left: 26px;
+    width: 150px;
+    height: 150px;
+}
+#the_security_team_c{
+    left: 180px;
+}
+#the_security_team_d{
+    left: 335px;
+}
+#task_overview_a{
+    position: absolute;
+    top: 25px;
+    left: 210px;
+    width: 670px;
+    height: 270px;
+}
+#trend_of_hidden_trouble_a{
+    position: absolute;
+    top: 30px;
+    left: 10px;
+    width: 430px;
+    height: 300px;
+}
+.key_task_list ul li span{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+

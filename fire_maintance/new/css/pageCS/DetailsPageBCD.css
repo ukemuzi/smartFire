@@ -1,0 +1,90 @@
+/* 筛选 */
+.fire-alarm-false .screening-tc {display: none; position: absolute;top: 0;left:0%;width: 100%;height: 100%;padding-left: .7rem;box-sizing: border-box;background: rgba(0,0,0,.5); z-index: 100;}
+.fire-alarm-false .screening-tc .tc-center{position: absolute;top: 0;left: 100%;width: 6.5rem;height: 100%;padding-top: .2rem;box-sizing: border-box; background:rgba(255,255,255,1);z-index: 2;}
+.fire-alarm-false .screening-tc .tc-center .screening-icon{border-radius: .1rem;border-bottom: .2rem #F0F0F0 solid;}
+.fire-alarm-false .screening-tc .tc-center .title{position: relative; height: 1rem;line-height: 1rem;padding-left: .3rem; font-size: .26rem;color: #333;}
+.fire-alarm-false .screening-tc .tc-center .checked-text{position: absolute;min-width: .3rem;height: 100%; right: .3rem;top: 0;padding-right: .38rem;background: url(../../icon/bottom_icon.png) no-repeat right .35rem;background-size: auto 25%; font-size: .22rem;color: #1A8EE9;}
+.fire-alarm-false .screening-tc .tc-center .active{background: url(../../icon/top_icon.png) no-repeat right .35rem;background-size: auto 25%;}
+.fire-alarm-false .screening-tc .tc-center .level-list div{float: left; width: 1.78rem; height: .6rem; line-height: .6rem;margin-left: .3rem; margin-bottom: .3rem;border: 1px #fff solid; border-radius: .08rem;box-sizing: border-box; background: #F0F0F0; text-align: center;font-size: .22rem;color: #666;}
+.fire-alarm-false .screening-tc .tc-center .level-list .active{background: #E1EFFA;color: #1A8EE9;border:1px solid rgba(26,142,233,1);}
+.fire-alarm-false .screening-tc .tc-center .confirm-btn{position: absolute;bottom:0;left: 0;width: 100%;height: 1rem; padding: .2rem .3rem;border-top: 1px #E5E5E5 solid;box-sizing: border-box;}
+.fire-alarm-false .screening-tc .tc-center .confirm-btn a{display: block;width: 2.7rem;height: .6rem;line-height: .6rem;border:1px solid rgba(191, 191, 191, 1);border-radius: .08rem;box-sizing: border-box;  color: #333;text-align: center;font-size: .26rem;}
+.fire-alarm-false .screening-tc .tc-center .confirm-btn .confirm{background: #1A8EE9;color: #fff;}
+.fire-alarm-false .screening-tc .shadow-box {position: absolute;top: 0;left: 0;width: .7rem;height: 100%;z-index: 1;}
+
+/* 警报详情 */
+.fire-alarm-false .center{padding: .2rem .3rem;}
+.fire-alarm-false .center .company-info{padding: .1rem 0; background: #fff;border-radius: .14rem;box-shadow: 0rem .03rem .09rem 0rem rgba(160, 160, 160, 0.33);}
+.fire-alarm-false .center .company-address{padding: 0 0 .1rem .25rem; border-bottom: 1px #DCDCDC solid;}
+.fire-alarm-false .center .adress-icon{float: right;width: .36rem;height: .36rem;margin: .25rem .25rem 0 .14rem;background: url(../../icon/coordinate_icon.png) no-repeat 0 0;background-size: 100% auto;}
+.fire-alarm-false .center .info{float: left;width: 5.1rem;}
+.fire-alarm-false .center .name{font-size: .3rem;color: #333;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.fire-alarm-false .center .adress-text{margin-bottom: .1rem;margin-top: .05rem; font-size: .22rem;color: #666;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.fire-alarm-false .center .company-info .info-bot{padding: .2rem .2rem .1rem .2rem;}
+.fire-alarm-false .center .company-info .info-bot .text-p{line-height: .45rem; font-size: .24rem;color: #333;}
+.fire-alarm-false .center .company-info .info-bot .text-p .color-gray{margin-left: .1rem;color: #666}
+.fire-alarm-false .call-phone{margin-top: .2rem; padding: 0 .25rem; box-shadow: 0rem .03rem .09rem 0rem rgba(160, 160, 160, 0.33);border-radius:.1rem;background:rgba(255,255,255,1);}
+.fire-alarm-false .safetyManager{position: relative; height: 1.08rem; padding: .15rem 0 .2rem 0;box-sizing: border-box; border-bottom: 1px #DBDBDB solid;}
+.fire-alarm-false .call-phone>div:last-child .safetyManager{border: none;}
+.fire-alarm-false .safetyManager p{font-size: .24rem;text-align: left;margin: 0;color: #333;}
+.fire-alarm-false .safetyManager #callPhone{line-height: .45rem; font-size: .24rem;color: #999;}
+.fire-alarm-false .safetyManager p span{color: #666666;}
+.fire-alarm-false .safetyManager .phone-icon{position: absolute;right:0;top: .35rem;width: .32rem;height: .32rem;background: url(../../icon/callPhone_icon.png) no-repeat 0 0;background-size: 100% auto;}
+.fire-alarm-false .center .basis-info {margin-top: .2rem; border-radius: .1rem; background:rgba(255,255,255,1); box-shadow: 0rem .03rem .09rem 0rem rgba(160, 160, 160, 0.33);}
+.fire-alarm-false .center .title{position: relative; padding-left: .44rem; line-height: .72rem; border-bottom: 1px #d7d7d7 solid;font-size: .28rem;}
+.fire-alarm-false .center .title .left-icon{position: absolute;left: .2rem;top: .2rem;width: .08rem;height: .32rem;background: #68BDFF;border-radius: .3rem;}
+.fire-alarm-false .center .address-floor{line-height: .8rem; font-size: .24rem;}
+.fire-alarm-false .center .address-floor>div{padding-left: .21rem;border-bottom: 1px #dcdcdc solid;}
+.fire-alarm-false .center .address-floor>div:last-child{border: none;}
+.fire-alarm-false .center .address-floor img{float: left;width: 1.65rem;height: 1.2rem;margin: 0 .2rem 0 .3rem;}
+.fire-alarm-false .center .address-floor .fl{width: 5.3rem;}
+.fire-alarm-false .center .address-floor .jiantou-right{width: .26rem;height: .37rem;margin-top: .24rem; margin-right: .3rem;background: url(../../icon/jiantou-right.png) no-repeat 0 0;background-size: 90% auto;}
+.fire-alarm-false .center .log{margin-top:.2rem;}
+.fire-alarm-false .center .video-box{padding: .15rem .2rem;}
+.fire-alarm-false .center .video-box img{width: 6.20rem;height: 3.24rem;}
+.fire-alarm-false .mui-scroll-wrapper{top: .89rem;overflow: auto;}
+
+
+.fire-alarm-false .center .log .main-list{margin-top: .2rem;} 
+.fire-alarm-false .center .log .item{position: relative;}
+.fire-alarm-false .center .log .item>div{height: 100%; padding-bottom: .25rem;}
+.fire-alarm-false .center .log .item>div:before{content: "";position: absolute;left: .45rem;top: 1.1rem;bottom: 0;width: 1px;background: #a9c6e5;}
+.fire-alarm-false .center .log .item:last-child>div:before{content: "";display: none;}
+.fire-alarm-false .center .log .item .fl{width: .9rem;text-align: center;margin-right: .1rem;}
+.fire-alarm-false .center .log .item .state-icon{ display: block;width: .4rem;height: .4rem;margin: 0 auto;background: url(../../icon/process_ing.png) no-repeat 0 0;background-size: 100% auto;}
+.fire-alarm-false .center .log .item:last-child .state-icon{background: url(../../icon/process_end_icon.png) no-repeat 0 0;background-size: 100% auto;}
+.fire-alarm-false .center .log .item:first-child .state-icon{background: url(../../icon/alarm_icon.png) no-repeat 0 0;background-size: 100% auto;}
+.fire-alarm-false .center .log .item .time{font-size: .20rem;color: #a6a6a6;}
+.fire-alarm-false .center .log .item .data{font-size: .24rem;}
+.fire-alarm-false .center .log .item .fr{width: 5.5rem;border-radius: .1rem;box-shadow: 0rem .03rem .09rem 0rem rgba(160, 160, 160, 0.33);background: #fff;}
+.fire-alarm-false .center .log .item .state{height: .6rem;line-height: .6rem;border-bottom: 1px #dcdcdc solid;padding-left: .3rem;color: #3574bb;font-size: .28rem;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
+.fire-alarm-false .center .log .item .info-list{margin: .1rem 0;}
+.fire-alarm-false .center .log .item .info-list div{line-height: .45rem;margin-top: .1rem; padding: 0 0 0 .3rem;color: #666666;font-size: .24rem;}
+.fire-alarm-false .center .log .item .info-list div span{margin-left: .1rem;}
+.fire-alarm-false .center .log .item .info-list .color-gray{color: #9a9a9a;}
+.fire-alarm-false .center .log .item .img-box {padding-left: .3rem;}
+.fire-alarm-false .center .log .item .img-box img{width: .9rem;height: .9rem;border-radius: .08rem;margin: 0 .2rem .2rem 0;}
+.fire-alarm-false .shielding-box .title{position: relative;line-height: .8rem;border-radius: .08rem; border: none;margin-bottom: .1rem;background: #fff;}
+.fire-alarm-false .shielding-box .title .screening{position: absolute;right: .2rem;top: 0;width: .6rem;height: 100%;background:url(../../icon/Open_icon.png) no-repeat center center;background-size: 45% auto;z-index: 2;}
+.fire-alarm-false .shielding-box .shielding-info{ border:1px solid rgba(210,210,210,1);border-radius:.1rem;background:rgba(255,255,255,1);}
+.fire-alarm-false .switch{ padding: 0 .2rem;border-bottom: 1px #dcdcdc solid;}
+
+
+
+.fire-alarm-false .screening-tc .item{padding-top: .2rem;}
+.fire-alarm-false .screening-tc .item .item-top{padding: .1rem 0 .1rem .3rem; border-bottom: 1px #e5e5e5 solid;}
+.fire-alarm-false .screening-tc .item .item-top .company-name{padding-right: .2rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap; font-size: .28rem;color:#333;}
+.fire-alarm-false .screening-tc .item .item-top .time{line-height: .45rem; font-size: .22rem;color:#999;}
+.fire-alarm-false .screening-tc .item .address{position: relative; line-height: .45rem; padding-left: .3rem;font-size: .2rem;color: #666;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.fire-alarm-false .screening-tc .item .address .state{position: absolute;right: .3rem;top: 0;color: #666;}
+
+.fire-alarm-false .switch-box {position: relative;background:rgba(255,255,255,1);height: 10rem;}
+.fire-alarm-false .screening-tc  .item-padding{height: 1.66rem; border-radius: .1rem;background:rgba(255,255,255,1);box-shadow: 0rem .03rem .09rem 0rem rgba(160, 160, 160, 0.33);}
+.fire-alarm-false .screening-tc .mui-table-view{ padding: 0 .24rem;}
+.fire-alarm-false .screening-tc .mui-scroll-wrapper{top: 3.2rem;bottom: 0; overflow: hidden;	background: #fff}
+.fire-alarm-false .shadow-box{position: absolute;bottom: 0;left: 0; width: 100%;height: 100%;z-index: 3}
+.fire-alarm-false .screening-tc .item:last-child{margin-bottom: 0;border: none;}
+.fire-alarm-false .mui-table-view:after,.fire-alarm-false .mui-table-view:before{content: "";background-color: #fff;}
+
+.fire-alarm-false .back-top{display: none; z-index: 101;}
+.fire-alarm-false .cancel-time{position: relative;top: .2rem; clear: both; width: 1.52rem;height: .46rem;line-height: .46rem; border-radius:23px; margin: .2rem auto; background: #ccc;font-size: .3rem;color: #fff;text-align: center;}

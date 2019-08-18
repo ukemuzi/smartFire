@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="webkit">
+    <title>预案信息管理</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <!-- 头部 -->
+        <div class="head">
+            <ul class="clearfix">
+                <!-- <li>用户管理</li>
+                <li>权限设置</li> -->
+                <li class="active">人员机构</li>
+            </ul>
+        </div>
+        <div class="main">
+            <!-- 消防机构 -->
+            <div class="main_left">
+                <h3 class="title">消防机构</h3>
+                <div class="search_box clearfix">
+                    <div class="inp">
+                        <input type="text" id="s_txt">
+                    </div>
+                    <div class="search_btn" id="tree_search">
+                        <i class="searchicon"></i>
+                    </div>
+                </div>
+                <div class="tab_left">
+                    <ul id="treeNode" class="ztree mobTree">
+                    </ul>
+                </div>
+            </div>
+            <!-- 中 -->
+            <div class="main_center">
+                <!-- 人员查询 -->
+                <div class="person_search">
+                    <h3 class="title">人员查询</h3>
+                    <div class="form_box">
+                        <ul>
+                            <li>
+                                <div class="little_box">
+                                    <span>姓名</span>
+                                    <div class="input_box">
+                                        <input type="text" placeholder="请输入人员姓名查询" id="xmfilter">
+                                    </div>
+                                </div>
+                                <div class="little_box">
+                                    <span>联系电话</span>
+                                    <div class="input_box">
+                                        <input type="text" id="dhfilter">
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <span>职务</span>
+                                <div class="input_box_big">
+                                    <input type="text"  id="zwfilter">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="btn_box">
+                        <button onclick="getfiremen()">查询</button>
+                        <button>重置</button>
+                    </div>
+                </div>
+                <!-- 查询结果 -->
+                <div class="search_result">
+                    <h3 class="title">查询结果</h3>
+
+                    <div class="table_box">
+                        <div class="all_del_box">
+                            <input type="checkbox" id="check" class="">
+                            <label for="check"></label>
+                        </div>
+                        <span class="all_btn">全选</span>
+                        <button id="delArr">删除</button>
+                        <table class="layui-hide" id="test" lay-filter="test"></table>
+
+
+                    </div>
+                </div>
+            </div>
+            <from lay-filter="example" class="layui-form">
+                <!-- 人员信息详情 -->
+                <div class="main_right">
+                    <h3>人员信息详情</h3>
+                    <div class="btn_box">
+                        <div class="btn" onclick="addUser()">
+                            新增
+                            <i class="addicon"></i>
+                        </div>
+                        <div class="btn" lay-submit lay-filter="formDemo">
+                            保存
+                            <i class="saveicon"></i>
+                        </div>
+                    </div>
+                    <div class="penson_info">
+                        <ul>
+
+                            <input type="text" name="id" class="layui-input" style="display: none;" value="">
+
+                            <li>
+                                <div class="l_box">
+                                    <span>姓名</span>
+                                    <div class="inp_box">
+                                        <input type="text" name="xm" class="layui-input">
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="l_box">
+                                    <span>性别</span>
+                                    <div class="inp_box">
+                                        <input type="text" name="xb">
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="l_box">
+                                    <span>身份证号</span>
+                                    <div class="inp_box">
+                                        <input type="text" name="sfzh">
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="l_box">
+                                    <span>出生日期</span>
+                                    <div class="inp_box">
+                                        <input type="text" name="csrq">
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="l_box">
+                                    <span>籍贯</span>
+                                    <div class="inp_box">
+                                        <input type="text" name="jg">
+                                    </div>
+                                </div>
+                                <div class="l_box">
+                                    <span>学历</span>
+                                    <div class="inp_box">
+                                        <input type="text" name="xl">
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="l_box">
+                                    <span>职务</span>
+                                    <div class="inp_box">
+                                        <input type="text" name="zwmc">
+                                    </div>
+                                </div>
+                                <div class="l_box">
+                                    <span>联系电话</span>
+                                    <div class="inp_box">
+                                        <input type="text" name="yddh">
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="l_box">
+                                    <span>家庭电话</span>
+                                    <div class="inp_box">
+                                        <input type="text" name="jtdh">
+                                    </div>
+                                </div>
+                                <div class="l_box">
+                                    <span>办公电话</span>
+                                    <div class="inp_box">
+                                        <input type="text" name="bgdh">
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="l_box">
+                                    <span>邮政编码</span>
+                                    <div class="inp_box">
+                                        <input type="text">
+                                    </div>
+                                </div>
+                                <div class="l_box">
+                                    <span>显示顺序</span>
+                                    <div class="inp_box">
+                                        <input type="text">
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="b_box">
+                                    <span>居住地址</span>
+                                    <div class="inp_box">
+                                        <input type="text" name="jzdz">
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="b_box">
+                                    <span>通讯地址</span>
+                                    <div class="inp_box">
+                                        <input type="text">
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="l_box">
+                                    <span>所在机构</span>
+                                    <div class="inp_box">
+                                        <input type="text" name="sjszjg">
+                                    </div>
+                                </div>
+                                <div class="l_box">
+                                    <span>行政区域</span>
+                                    <div class="inp_box">
+                                        <input type="text">
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="sb_box">
+                                    <span>备注信息</span>
+                                    <div class="inp_box">
+                                        <textarea name="bzxx" id="" cols="30" rows="10"></textarea>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="head_img">
+
+                        </div>
+                    </div>
+                </div>
+            </from>
+        </div>
+    </div>
+</body>
+<script type="text/html" id="barDemo">
+    <!-- <a class="layui-btn layui-btn-xs editBtn" lay-event="edit"></a> -->
+<a class="layui-btn layui-btn-danger layui-btn-xs delBtn" lay-event="del"></a>
+</script>
+<script src="../js/jquery.min.js"></script>
+<script src="../src/layui/layui.all.js"></script>
+<script src="../src/ztree/js/jquery.ztree.core.min.js"></script>
+<script src="../src/ztree/js/jquery.ztree.exhide.min.js"></script>
+<script src="../js/tree_search.js"></script>
+<script src="../../common/js/apiConst.js"></script>
+<script>
+   
+    $(function () {
+
+
+        layui.use('table', function () {
+            getfiremen(offset,pagesize,param);
+        })
+    })
+   
+     function initTable(data) {
+        var table = layui.table;
+        var tableIns = table.render({
+            elem: '#test',
+            height: 510,
+            data: data.list,
+            cols: [
+                [{
+                    type: 'checkbox',
+                    field: 'id',
+                },
+                {
+                    field: 'xm',
+                    title: '姓名',
+                    width: '70',
+                    align: 'left'
+                },
+                {
+                    field: 'xb',
+                    title: '性别',
+                    width: '70',
+                    align: 'left'
+                },
+                {
+                    field: 'zwmc',
+                    title: '职务',
+                    width: '100',
+                    align: 'left'
+                },
+                {
+                    field: 'yddh',
+                    title: '联系电话',
+                    width: '120',
+                    align: 'left'
+                }
+                    ,
+                {
+                    fixed: 'right',
+                    width: '70',
+                    align: 'center',
+                    toolbar: '#barDemo'
+                }]
+            ]
+        });
+        form = layui.form;
+        form.val('example', {});
+        form.on('submit(formDemo)', function (data) {
+            var resData = JSON.stringify(data.field);
+            //通过ajax提交数据
+            $.ajax({
+                url:"http://192.168.1.106:11800" +'/firemen/saveFiremen',
+                type: 'post',
+                data:resData,
+                contentType: 'application/json',
+                dataType: 'json',
+                success: function (res) {
+                    if(res.code==0){
+                        layer.msg("保存成功");
+                    }
+                    
+                },
+                error: function (res) {
+                    layer.msg("后台接口待开发");
+                }
+            })
+
+        })
+        $("#delArr").click(function(){
+             
+            var checkStatus = table.checkStatus('test');
+            var resData = $.map(checkStatus.data, function (item) {
+                return item.id;
+            });
+            deletePeople(resData);
+
+
+        })
+        function deletePeople(resData){
+            $.ajax({
+                url:"http://192.168.1.106:11800" +'/firemen/deleteFiremen',
+                type: 'post',
+                data: JSON.stringify(resData),
+                contentType: 'application/json',
+                dataType: 'json',
+                success: function (res) {
+                    if(res.code==0){
+                        layer.msg("删除成功");
+                        getfiremen();
+                        //obj.del();
+                        layer.close();
+                    }
+                    
+                },
+                error: function (res) {
+                    layer.msg("后台接口待开发");
+                }
+            })
+        }
+        table.on('tool(test)', function (obj) {
+            var data = obj.data;
+            if(obj.event === 'del'){
+                layer.confirm('确认删除？',{btn: ['确定', '取消'],title:"提示"}, function(){
+                    resData=[data.id];
+                    deletePeople(resData);
+                });
+                
+            } 
+        });
+        table.on('row(test)', function (obj) {
+            var data = obj.data;
+            if(obj.event === 'detail'){
+                layer.msg('ID：'+ data.id + ' 的查看操作');
+            } else if(obj.event === 'del'){
+                layer.confirm('确认删除？', function(index){
+                    obj.del();
+                    layer.close(index);
+                });
+            } else if(obj.event === 'edit'){
+                layer.alert('编辑行：<br>'+ JSON.stringify(data))
+            }
+            //JSON.stringify(data);往后台传string
+            form.val('example', data);
+        });
+    }
+    var offset=1;
+    var pagesize=7;
+    var param={
+        "sjszjg": "",
+        "xm": "",
+        "yddh": "",
+        "zwmc": ""
+    }  
+    function getfiremen() {
+                param.xm=$("#xmfilter").val();
+                param.yddh=$("#dhfilter").val();
+                param.zwmc=$("#zwfilter").val();
+                $.ajax({
+                    url: "http://192.168.1.106:11800" + "/firemen/pageList/"+offset+"/"+pagesize,
+                    type: 'post',
+                    data: JSON.stringify(param),
+                    contentType: 'application/json',
+                    //async: false,
+                    dataType: 'json',
+                    success: function (res) {
+                        res.data.list = res.data.warningList;
+                        var data = {
+                            "code":0,
+                            "msg":"",
+                            "totalCount":res.data.total,
+                            "list": res.data.warningList
+                        }
+                        // 表格渲染
+                        initTable(data);
+                    },
+                    error: function (res) {
+                        // $.get("data/weather.json", function (res) {
+                        //     inittianqi(res);
+                        // })
+                    }
+                })
+            }
+    var form;
+    function addUser() {
+        form.val('example', {
+                "id": "",
+                "deleted": null,
+                "creator": null,
+                "createdOn": null,
+                "modifier": null,
+                "modifiedOn": null,
+                "deleter": null,
+                "deletedOn": null,
+                "version": null,
+                "tenantId": null,
+                "tenantChange": false,
+                "xm": "",
+                "xb": "",
+                "sfzh": "",
+                "csrq": "",
+                "jg": "",
+                "xl": "",
+                "zwmc": null,
+                "jzdz": null,
+                "sjszjg": "",
+                "bzxx": "",
+                "yddh": null,
+                "bgdh": null,
+                "jtdh": null
+            });
+    }
+    var zTreeObj;
+    var setting = {
+        view: {
+            showLine: false, //不显示连接线
+            dblClickExpand: false
+            // showIcon: false
+        },
+        data: {
+            simpleData: {
+                enable: true,
+                idKey: "jgtree",
+                pIdKey: "pid",
+                rootPId: "010000004200000042001000"
+            }, key: {
+                name: "jgjc"
+            }
+        },
+       
+        callback: {
+            onClick: treeOnClick,
+            onDblClick:treeDblClik
+        }
+    };
+    
+    function treeDblClik(e, treeId, treeNode){
+        clearTimeout(timer);
+        var zTree = $.fn.zTree.getZTreeObj("treeNode");
+        zTree.expandNode(treeNode);
+    }
+    // onItemClick: function(view, node, item, index, e, options) {
+    //         // 用于解决双击时候会调用两次单击事件的问题
+          
+    //     },
+    //展开
+    var timer=null;
+    function treeOnClick(e, treeId, treeNode) {
+        //alert( + ", " + treeNode.name);
+        clearTimeout(timer);
+        timer = setTimeout(function() { //在单击事件中添加一个setTimeout()函数，设置单击事件触发的时间间隔 
+            
+            var zTree = $.fn.zTree.getZTreeObj("treeNode");
+            param.sjszjg=treeNode.jgtree;
+            getfiremen();
+            //alert(treeId);
+        }, 300);
+
+        
+        //zTree.expandNode(treeNode);
+
+    }
+    function initTree() {
+        //$.get(baseApiUrl+"org/getOrgLevel",function(res){
+        $.get(baseApiUrl + "/org/getOrgLevel", function (res) {
+            // 树结构渲染
+            zTreeObj = $.fn.zTree.init($("#treeNode"), setting, res.data);
+            zTreeObj.expandAll(true);
+            // 搜索
+            fuzzySearch('treeNode', '#s_txt', false, true)
+        })
+    }
+
+    $(function () {
+        initTree();
+
+        // 顶部切换
+        $(".head ul li").click(function () {
+            $(".head ul li").removeClass('active');
+            $(this).addClass('active');
+            location.href = "p2_5.html";
+        });
+        // 左边tab切换
+        $(".tab_left .item a").click(function () {
+            $(".tab_left .item").removeClass('active');
+            $(this).parent('li.item').addClass('active');
+            $(this).next('.nav-item').slideToggle('fast');
+            $(this).find('i').toggleClass('down');
+        })
+
+        // 全选事件
+        $(".all_del_box").find('input').click(function () {
+            if ($(".all_del_box").find('input').hasClass('active')) {
+                $(".layui-table-body .layui-unselect.layui-form-checkbox").removeClass(
+                    'layui-form-checked');
+
+            } else {
+                $(".layui-table-body .layui-unselect.layui-form-checkbox").addClass(
+                    'layui-form-checked');
+
+            }
+            $(".all_del_box").find('input').toggleClass('active');
+        })
+
+        // 滚动加载
+        var num = 1;
+        $('.layui-table-body').bind('scroll', function () {
+            // debugger;
+            var scrollTop = $(this).scrollTop();
+            var windowHeight = 429;
+            var scrollHeight = $(".layui-table-body .layui-table").height();
+            if (eval(scrollTop + windowHeight) == scrollHeight) {
+                num++;
+                console.log(num);
+                // 执行向下翻页
+            }
+            if (scrollTop == 0) {
+                num--;
+                console.log(num)
+                // 执行向上翻页
+            }
+        })
+    })
+</script>
+
+</html>

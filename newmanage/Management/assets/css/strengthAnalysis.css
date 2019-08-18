@@ -1,0 +1,354 @@
+body{
+    background: url(../img/cbg.png) no-repeat;
+    background-size: 100%;
+}
+.main{
+    padding: 25px 0 0 10px;
+}
+.main .part{
+    width: 466px;
+    height: 330px;
+    margin-top: 10px;
+    position: relative;
+    background: url(../img/bl.png) no-repeat;
+}
+.main .part h3{
+    width: 227px;
+    height: 106px;
+    padding-left:40px;
+    line-height: 106px;
+    font-size: 22px;
+    color: #fff;
+    /* font-weight: 600; */
+    position: absolute;
+    left: -12px;
+    top: -34px;
+    background: url(../img/sz.png) no-repeat;
+}
+.main .part h3.little{
+    width: 209px;
+    padding-left: 42px;
+    background: url(../img/sl.png) no-repeat;
+}
+.main .main_left,
+.main .main_map,
+.main .main_right{
+    float: left;
+}
+.main .main_right{
+    margin-left: 8px;
+}
+/* 各机构数量 */
+.main .main_left ul li{
+    width: 136px;
+    height: 64px;
+    padding-top: 15px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    color: #3d99e2;
+    transition: 0.2s;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -ms-transition: 0.2s;
+    -o-transition: 0.2s;
+}
+.main .main_left ul li span{
+    display: block;
+    font-size: 24px;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+.main .main_left ul li em{
+    font-size: 14px; 
+}
+.main .main_left ul li:nth-of-type(1){
+    left: 58px;
+    top: 54px;
+    padding-left: 35px;
+    background: url(../img/y1.png) no-repeat;
+}
+.main .main_left ul li:nth-of-type(2){
+    left: 275px;
+    top: 54px;
+    padding-left: 54px;
+    background: url(../img/y2.png) no-repeat;
+}
+.main .main_left ul li:nth-of-type(2) span,
+.main .main_left ul li:nth-of-type(3) span,
+.main .main_left ul li:nth-of-type(4) span{
+    width: 67px;
+    text-align: center;
+}
+.main .main_left ul li:nth-of-type(3){
+    left: 312px;
+    top: 146px;
+    padding-left: 53px;
+    background: url(../img/y3.png) no-repeat;
+}
+
+.main .main_left ul li:nth-of-type(4){
+    left: 275px;
+    top: 239px;
+    padding-left: 54px;
+    background: url(../img/y4.png) no-repeat;
+}
+.main .main_left ul li:nth-of-type(5){
+    left: 58px;
+    top: 239px;
+    padding-left: 27px;
+    background: url(../img/y5.png) no-repeat;
+}
+.main .main_left ul li:nth-of-type(5) span{
+    width: 45px;
+    text-align: center;
+}
+.main .main_left ul li:nth-of-type(6){
+    left: 19px;
+    top: 146px;
+    padding-left: 35px;
+    background: url(../img/y6.png) no-repeat;
+}
+.main .main_left .center_box{
+    width: 139px;
+    height: 137px;
+    padding-top: 90px;
+    position: absolute;
+    left: 35%;
+    top: 33%;
+    cursor: pointer;
+    background: url(../img/y7.png) no-repeat;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    transition: 0.2s;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -ms-transition: 0.2s;
+    -o-transition: 0.2s;
+}
+.main .main_left .center_box:hover{
+    transform:  scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    /* background-size: 105%; */
+}
+.main .main_left .pie{
+    width: 450px;
+    height: 270px;
+    position: relative;
+    left: 5px;
+    top: 60px;
+}
+.main .main_left .radio_box{
+    position: absolute;
+    right: 10px;
+    top: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    vertical-align: middle;
+}
+.main .main_left .radio_box label{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url(../img/r1.png) no-repeat;
+    background-position: center;
+    vertical-align: middle;
+}
+.main .main_left .radio_box input[type="radio"]{
+    display: none;
+}
+.main .main_left .radio_box input[type="radio"]:checked + label{
+    background: url(../img/r2.png) no-repeat; 
+    background-position: center;
+    vertical-align: middle;
+}
+.main .main_left .radio_box  span{
+    margin-right: 15px;
+}
+.main .main_left .btn_list li:hover{
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+/* 地图 */
+.main .main_map{
+    width: 940px;
+    height: 670px;
+    margin-left: 10px;
+    margin-top: 11px;
+    padding: 3px 16px 7px 7px;
+    position: relative;
+}
+.main .main_map .map{
+    width: 927px;
+    height: 657px;
+    position: absolute;
+    top: 6px;
+    left: 7px;
+    z-index: 2;
+    border-radius: 0 0 0 26px;
+}
+.main .main_map .border{
+    width: 955px;
+    height: 673px;
+    position: absolute;
+    z-index: 3;
+    left: 0;
+    top: -2px;
+    background: url(../img/bz2.png) no-repeat;
+    background-size: 98.5%;
+}
+/* 特种装备统计 */
+.main .main_right .equip{
+    padding: 53px 15px 0 20px;
+}
+/* 车辆药剂统计 */
+.main_right .car_census{
+    position: relative;
+}
+.main_right .car_census .census{
+    position: absolute;
+    right: 32px;
+    top: 12px;
+}
+.main_right .car_census .census ul li{
+    margin-top: 10px;
+}
+.main_right .car_census .census ul li i{
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    vertical-align: middle;
+    background: #40ace5;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.main_right .car_census .census ul li:nth-of-type(2) i{
+    background: #60e16b;
+}
+.main_right .car_census .census ul li{
+    font-size: 16px;
+    color: #fff;
+}
+.main_right .car_census .census ul li span{
+    margin-left: 5px;
+}
+.main_right .column_right{
+    width: 428px;
+    height: 270px;
+    top: 65px;
+    left: 12px;
+}
+/* 下部 */
+.main .main_bottom{
+    width: 1894px;
+    height: 270px;
+    margin-top: 10px;
+    position: relative;
+    background: url(../img/bb.png) no-repeat;
+}
+.main .main_bottom h3{
+    width: 276px;
+    height: 106px;
+    line-height: 106px;
+    padding-left: 43px;
+    font-size: 22px;
+    color: #fff;
+    position: absolute;
+    left: -12px;
+    top: -34px;
+    background: url(../img/sg.png) no-repeat;
+}
+.main .main_bottom .column_bottom{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.main .main_bottom .btn_list{
+    position: absolute;
+    right: 92px;
+    top: 23px;
+}
+.main .main_bottom .btn_list li{
+    float: left;
+    width: 70px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+    color: #fff;
+    border: 1px solid #1984cf;
+    background: #1e3f59;
+    border-left: none;
+}
+.main .main_bottom .btn_list li.active{
+    background: #1984cf;
+}
+.main .main_bottom .btn_list li:nth-of-type(1){
+    border-radius: 20px 0 0 20px;
+    -webkit-border-radius: 20px 0 0 20px;
+    -moz-border-radius: 20px 0 0 20px;
+    -ms-border-radius: 20px 0 0 20px;
+    -o-border-radius: 20px 0 0 20px;
+}
+.main .main_bottom .btn_list li:nth-of-type(4){
+    border-radius: 0 20px 20px 0;
+    -webkit-border-radius: 0 20px 20px 0;
+    -moz-border-radius: 0 20px 20px 0;
+    -ms-border-radius: 0 20px 20px 0;
+    -o-border-radius: 0 20px 20px 0;
+}
+/* layui */
+ .layui-table thead tr, .layui-table-click, .layui-table-header, .layui-table-hover, .layui-table-mend, .layui-table-patch, .layui-table-tool, .layui-table-total, .layui-table-total tr, .layui-table[lay-even] tr:nth-child(even){
+    background: #183146;
+}
+.layui-table th .layui-table-cell{
+    font-size: 18px;
+    color: #1aabff;
+    border: none;
+}
+.layui-table-view .layui-table td, .layui-table-view .layui-table th{
+    border: none;
+}
+.layui-table-header, .layui-table-view{
+    border: none;
+}
+
+.layui-table-body::-webkit-scrollbar {
+    width: 6px;
+}
+.layui-table-body::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: #195275;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+.layui-table-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+.layui-table td{
+    border: none;
+}
+.layui-table-view .layui-table td{
+    background: #0d1f2d;
+    border-bottom: 2px solid #195275;
+}
+.layui-table-cell{
+    font-size: 16px;
+    color: #fff;
+}
